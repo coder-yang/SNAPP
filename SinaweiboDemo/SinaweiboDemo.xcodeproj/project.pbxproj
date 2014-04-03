@@ -19,6 +19,7 @@
 		112C59AE18ED0DFD00AD2C8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 112C599618ED0DFC00AD2C8A /* UIKit.framework */; };
 		112C59B618ED0DFD00AD2C8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 112C59B418ED0DFD00AD2C8A /* InfoPlist.strings */; };
 		112C59B818ED0DFD00AD2C8A /* SinaweiboDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 112C59B718ED0DFD00AD2C8A /* SinaweiboDemoTests.m */; };
+		112C59C518ED348000AD2C8A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 112C59C418ED348000AD2C8A /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		112C59B318ED0DFD00AD2C8A /* SinaweiboDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SinaweiboDemoTests-Info.plist"; sourceTree = "<group>"; };
 		112C59B518ED0DFD00AD2C8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		112C59B718ED0DFD00AD2C8A /* SinaweiboDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinaweiboDemoTests.m; sourceTree = "<group>"; };
+		112C59C318ED348000AD2C8A /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		112C59C418ED348000AD2C8A /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 		112C598618ED0DFC00AD2C8A = {
 			isa = PBXGroup;
 			children = (
+				112C59C118ED343200AD2C8A /* Models */,
+				112C59C218ED343200AD2C8A /* Controllers */,
 				112C599818ED0DFC00AD2C8A /* SinaweiboDemo */,
 				112C59B118ED0DFD00AD2C8A /* SinaweiboDemoTests */,
 				112C599118ED0DFC00AD2C8A /* Frameworks */,
@@ -142,6 +147,22 @@
 				112C59B418ED0DFD00AD2C8A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		112C59C118ED343200AD2C8A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		112C59C218ED343200AD2C8A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				112C59C318ED348000AD2C8A /* RootViewController.h */,
+				112C59C418ED348000AD2C8A /* RootViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +262,7 @@
 			files = (
 				112C59A318ED0DFC00AD2C8A /* AppDelegate.m in Sources */,
 				112C599F18ED0DFC00AD2C8A /* main.m in Sources */,
+				112C59C518ED348000AD2C8A /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
