@@ -9,10 +9,11 @@
 #ifndef Urundc_IOS_SystemConfig_h
 #define Urundc_IOS_SystemConfig_h
 
-#define SMS_APPKEY @"687b26a368f5"
-#define SMS_APPSECRECT @"d46864d11d306df8b81eb7b6524e40b2"
-#define UmengAppkey @"551cfbfafd98c55e1f001744"
-
+#define kSinaKey @"1155686117"
+#define kSinaSecret @"f330a08c1d007da59d5de16f4fdef7ca"
+#define kAccessToken @"accessToken"
+#define kExpireTime @"expireTime"
+#define kUid @"uid"
 
 #define NONetworkPrompt @"无网络连接，请设置网络"
 #define TimeOutPrompt @"网络不给力，稍后再试"
@@ -25,10 +26,7 @@
 
 #define kGetCurAppVersion [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] //获取应用release版本号
 
-//#define FontGrayColor [UIColor grayColor]
-//#define FontBlackColor [UIColor blackColor]
-
-#define kNewsRefreshTime 5 //分钟
+#define kPageCount 20
 
 #define SystemFont_10 [UIFont systemFontOfSize:10]
 #define SystemFont_12 [UIFont systemFontOfSize:12]
@@ -46,56 +44,6 @@
 #define kArticleTitleFont [UIFont boldSystemFontOfSize:16] //新闻标题字体
 
 #define NoNetworkViewHeight 80
-
-//设置
-#define UserContentFont @"userContentFont"  //用户字体
-#define ContentSmallFont @"14"
-#define ContentMediumFont @"17"
-#define ContentLargeFont @"19"
-#define ContentKingFont @"22"
-
-#define IsNightMode @"isNightMode"  //是否夜间模式 1为是 0为否
-#define BackgroudNightModeOne RGBColor(36.0, 36.0, 36.0)  //最黑  背景
-#define BackgroudNightModeTwo RGBColor(42.0, 42.0, 42.0)  //left背景
-#define BackgroudNightModeThree RGBColor(48.0, 48.0, 48.0)  //tableview选中背景
-
-#define BackgroudDayTimeModeOne RGBColor(250.0, 250.0, 250.0)  //最白
-#define BackgroudDayTimeModeTwo RGBColor(244.0, 244.0, 244.0)
-#define BackgroudDayTimeModeThree RGBColor(238.0, 238.0, 238.0)
-
-#define TextDayTimeMode [UIColor blackColor]//RGBColor(67.0, 67.0, 67.0)
-#define TextDayTimeModeRead RGBColor(110.0, 110.0, 110.0)
-
-#define TextNightMode RGBColor(170.0, 170.0, 170.0)
-#define TextNightModeRead RGBColor(110.0, 110.0, 110.0)//(90.0, 90.0, 90.0)
-
-#define kNavNightModebackgroudColor [UIColor colorWithHex:0x113052]//RGBColor(0, 168.0, 240.0)
-#define kNavDayTimeModeBackgroundColor [UIColor colorWithHex:0x0277bd]
-
-//登录返回的信息
-#define CustomerIdKey @"customerIdKey"
-#define NickNameKey @"nickName"
-#define MobilePhone @"mobilePhone"
-#define ImeiKey @"imeiKey"
-#define MacKey @"macKey"
-#define Wechat @"wechat"
-#define CreateTime @"createTime"
-#define UpdateTime @"updateTime"
-#define InvitationCode @"invitationCode"
-#define InputCode @"inputCode"
-#define Password @"password"
-#define State @"state"
-#define HeadImg @"headImg"
-
-//授权登录返回
-#define LoginType @"loginType"
-#define RefreshToken @"refresh_token"
-#define OpenId @"openid"
-#define HeadImgUrl @"headImgUrl"
-
-//新闻列表每页数量
-#define kPageSize 28 //注意：设置为7的倍数
-
 
 //文件缓存路径
 #define CachePath ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0])

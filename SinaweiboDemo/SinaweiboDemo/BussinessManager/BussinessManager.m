@@ -9,6 +9,7 @@
 #import "BussinessManager.h"
 
 @implementation BussinessManager
+@synthesize weiboManager;
 
 + (instancetype)sharedBussinessManager
 {
@@ -25,7 +26,7 @@
 {
     if(self = [super init])
     {
-
+        weiboManager = [[WeiboMannager alloc]init];
     }
     return self;
 }

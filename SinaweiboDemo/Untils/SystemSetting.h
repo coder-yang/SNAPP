@@ -9,11 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "Reachability.h"
 
-@interface OpinionSetting : NSObject
+@interface SystemSetting : NSObject
+
 //设置view圆角
 + (void)setViewLayer:(UIView *)view radius:(CGFloat)radius borderWidth:(CGFloat)width borderColor:(UIColor *)color;
 
 //检测网络
 + (BOOL)hasNetWork;
+
++ (NSString *)getAccesstoken;
+
++ (BOOL)isVaildToken;
 
 @end

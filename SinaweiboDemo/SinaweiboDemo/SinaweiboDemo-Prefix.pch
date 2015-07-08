@@ -16,7 +16,7 @@
     #import <Foundation/Foundation.h>
     #import "ServicePathConfig.h"
     #import "SystemConfig.h"
-    #import "OpinionSetting.h"
+    #import "SystemSetting.h"
     #import "DBConfig.h"
 
 #endif

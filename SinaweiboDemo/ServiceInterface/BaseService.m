@@ -10,6 +10,7 @@
 #import "URRequest.h"
 #import "NSDictionary+Extend.h"
 #import "AppDelegate.h"
+#import "JSONKit.h"
 
 @implementation BaseService
 @synthesize manager;
@@ -38,32 +39,23 @@
     DLog(@"urlPath = %@", urlStr);
 
     manager = [URRequest sharedURRequest];
-    manager.requestSerializer.timeoutInterval = 10;
-    [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObject:@"text/html"]];
-//    [manager.requestSerializer setValue:@"text/html; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    manager.requestSerializer.timeoutInterval = 60;
     
-    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
-    [NSURLCache setSharedURLCache:sharedCache];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     AFHTTPRequestOperation *currentOperation = [manager GET:urlStr
      parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+         NSData *responseData = responseObject;
+         NSError *error = nil;
+         NSDictionary *jsonDic = nil;
+
+         NSString *jsonStr = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+
+         jsonDic = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:&error];
          
-         NSDictionary *jsonDic = (NSDictionary *)responseObject;
-         
-         NSError *error;
-         NSData *jsonData = nil;
-         if([NSJSONSerialization isValidJSONObject:responseObject])
-         {
-             jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:&error];
-             NSString *jsonStr = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-             
-             DLog(@"responseData = %@",jsonStr);
-         }
-         else
-         {
-             DLog(@"无效的json数据");
-         }
-         
+         DLog(@"responseData = %@",jsonStr);
          success(operation, jsonDic);
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

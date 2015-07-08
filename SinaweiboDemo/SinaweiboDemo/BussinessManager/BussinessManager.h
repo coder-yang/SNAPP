@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WeiboMannager.h"
 
 @interface BussinessManager : NSObject
-
+@property (nonatomic, strong) WeiboMannager *weiboManager;
 + (instancetype)sharedBussinessManager;
 
 @end

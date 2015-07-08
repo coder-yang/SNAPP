@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "RootViewController.h"
+#import "MainViewController.h"
+#import "LoginViewController.h"
+#import "NSString+Expand.h"
+#import "HomeVC.h"
 
 @implementation AppDelegate
 
@@ -16,10 +19,23 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    RootViewController *root = [[RootViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:root];
-    self.window.rootViewController = nav;
-    
+    NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
+    NSString *accessToken = [userDefaults objectForKey:kAccessToken];
+    if([NSString isEmptyString:accessToken] || ![SystemSetting isVaildToken])
+    {
+        LoginViewController *loginVC = [[LoginViewController alloc]init];
+        self.window.rootViewController = loginVC;
+    }
+    else
+    {
+//        MainViewController *main = [[MainViewController alloc]init];
+//        self.window.rootViewController = main;
+
+        HomeVC *home = [[HomeVC alloc]init];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:home];
+        self.window.rootViewController = nav;
+    }
+
     [self.window makeKeyAndVisible];
     return YES;
 }
