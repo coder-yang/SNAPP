@@ -28,12 +28,12 @@
     }
     else
     {
-//        MainViewController *main = [[MainViewController alloc]init];
-//        self.window.rootViewController = main;
+        MainViewController *main = [[MainViewController alloc]init];
+        self.window.rootViewController = main;
 
-        HomeVC *home = [[HomeVC alloc]init];
-        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:home];
-        self.window.rootViewController = nav;
+//        HomeVC *home = [[HomeVC alloc]init];
+//        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:home];
+//        self.window.rootViewController = nav;
     }
 
     [self.window makeKeyAndVisible];

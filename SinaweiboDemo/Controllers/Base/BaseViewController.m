@@ -63,7 +63,7 @@
         UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
         leftButton.frame = CGRectMake(0, StatusBarHeight, 50, 44); //14*25
         [leftButton setImageEdgeInsets:UIEdgeInsetsMake(10, 11, 10, 25)]; //top, left, bottom, right
-        [leftButton setImage:[UIImage imageNamed:@"icon_return"] forState:UIControlStateNormal];
+        [leftButton setImage:[UIImage imageNamed:@"icon_return_gray"] forState:UIControlStateNormal];
         [leftButton addTarget:self action:@selector(onBackButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [customNav addSubview:leftButton];
     }
@@ -134,8 +134,6 @@
 {
     [super viewDidLoad];
     
-//    [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-
     UISwipeGestureRecognizer *rightSwipeGes = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(rightSwipe)];
     rightSwipeGes.direction = UISwipeGestureRecognizerDirectionRight;
     rightSwipeGes.delegate = self;

@@ -22,11 +22,14 @@
 #define KDefaultImageName @"icon_default_image"
 #define kWeiboName @"微博"
 
+#define NoNetworkViewHeight 80
+#define kTabbarHeight 44
+#define kPageCount 20
+
 #define ViewBackgroundColor 0xf2f2f2
 
 #define kGetCurAppVersion [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] //获取应用release版本号
 
-#define kPageCount 20
 
 #define SystemFont_10 [UIFont systemFontOfSize:10]
 #define SystemFont_12 [UIFont systemFontOfSize:12]
@@ -43,7 +46,6 @@
 #define NavTitleFont [UIFont boldSystemFontOfSize:18] //导航栏标题字体
 #define kArticleTitleFont [UIFont boldSystemFontOfSize:16] //新闻标题字体
 
-#define NoNetworkViewHeight 80
 
 //文件缓存路径
 #define CachePath ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0])
@@ -56,10 +58,8 @@
 
 #define isScreen5_5Inch ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
 
-#define ScreenWith [UIScreen mainScreen].bounds.size.width
-#define Screenheight [UIScreen mainScreen].bounds.size.height
-
-#define DESKEY @"12345678"
+#define kScreenWith [UIScreen mainScreen].bounds.size.width
+#define kScreenheight [UIScreen mainScreen].bounds.size.height
 
 #define WIDTH(obj)  obj.frame.size.width
 #define HEIGHT(obj)  obj.frame.size.height
@@ -72,23 +72,6 @@
 #define KWindow [[UIApplication sharedApplication].delegate window]
 
 #define CoverNull(anobject) (((anobject==nil) || [anobject isKindOfClass:[NSNull class]])?nil:anobject)
-
-//主页栏目
-#define kStatusHeight 20
-#define kScreenW [UIScreen mainScreen].bounds.size.width
-#define kScreenH [UIScreen mainScreen].bounds.size.height
-
-#define bypadding 20
-#define itemPerLine 4
-#define kItemW (kScreenW-bypadding*(itemPerLine+1))/itemPerLine
-#define kItemH 25
-
-#define kListBarH 30
-#define kArrowW 40
-#define kAnimationTime 0.8
-#define TableViewHeight (kScreenH-kListBarH-64)
-#define TableViewHeightNoListBar (kScreenH-64)
-
 
 #endif
 

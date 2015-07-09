@@ -9,6 +9,7 @@
 #import "HomeVC.h"
 #import "BussinessManager.h"
 #import "NSMutableDictionary+Extend.h"
+#import "WeiboDetailVC.h"
 
 @interface HomeVC ()
 {
@@ -38,8 +39,9 @@
 - (UIView *)mainContentView
 {
     UIView *mainView = [[UIView alloc]initWithFrame:self.mainContentViewFrame];
+    mainView.backgroundColor = [UIColor whiteColor];
     
-    m_tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ScreenWith, self.mainContentViewFrame.size.height)];
+    m_tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWith, self.mainContentViewFrame.size.height-kTabbarHeight)];
     m_tableView.dataSource = self;
     m_tableView.delegate = self;
     [mainView addSubview:m_tableView];
@@ -51,6 +53,7 @@
 {
     [super viewDidLoad];
     self.navTitle = @"微博";
+    self.customNav.userInteractionEnabled = YES;
     
     [self requestFriendTimeLine];
 }
@@ -80,6 +83,12 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WeiboDetailVC *detailVC = [[WeiboDetailVC alloc]init];
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
 #pragma mark - 网络请求
 - (void)requestFriendTimeLine
 {
@@ -94,7 +103,7 @@
         m_dataArr = resultArr;
         [m_tableView reloadData];
         
-    } fail:^(NSString *errorStr){
+    } fail:^(NSString *errorStr) {
         
     }];
 }

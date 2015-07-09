@@ -12,7 +12,7 @@
 
 - (float)getMutableAttributedStringHeightByWidth:(float)width
 {
-    CGRect rect = [self boundingRectWithSize:CGSizeMake(ScreenWith-20, CGFLOAT_MAX)
+    CGRect rect = [self boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
                                                     options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
                                                     context:nil];
     return rect.size.height;
