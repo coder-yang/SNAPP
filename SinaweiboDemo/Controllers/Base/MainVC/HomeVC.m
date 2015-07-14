@@ -26,6 +26,11 @@
     return NO;
 }
 
+- (BOOL)isExistTabBar
+{
+    return YES;
+}
+
 - (instancetype)init
 {
     if(self = [super init])
@@ -41,7 +46,7 @@
     UIView *mainView = [[UIView alloc]initWithFrame:self.mainContentViewFrame];
     mainView.backgroundColor = [UIColor whiteColor];
     
-    m_tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWith, self.mainContentViewFrame.size.height-kTabbarHeight)];
+    m_tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWith, self.mainContentViewFrame.size.height)];
     m_tableView.dataSource = self;
     m_tableView.delegate = self;
     [mainView addSubview:m_tableView];
@@ -49,9 +54,20 @@
     return mainView;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.navTitle = @"微博";
     self.customNav.userInteractionEnabled = YES;
     
@@ -78,7 +94,7 @@
     }
     
     WeiboEntity *entity = m_dataArr[indexPath.row];
-    cell.textLabel.text = entity.text;
+    cell.textLabel.text = entity.weiboText;
     
     return cell;
 }
@@ -86,6 +102,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WeiboDetailVC *detailVC = [[WeiboDetailVC alloc]init];
+    detailVC.backText = self.tabBarItem.title;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

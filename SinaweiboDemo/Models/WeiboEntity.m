@@ -10,10 +10,10 @@
 
 @implementation WeiboEntity
 @synthesize created_at;
-@synthesize weiboid;
+@synthesize ID;
 @synthesize mid;
 @synthesize idstr;
-@synthesize text;
+@synthesize weiboText;
 @synthesize source;
 @synthesize favorited;
 @synthesize truncated;

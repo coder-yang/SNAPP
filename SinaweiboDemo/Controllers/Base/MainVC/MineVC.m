@@ -14,6 +14,16 @@
 
 @implementation MineVC
 
+- (BOOL)showBackButton
+{
+    return NO;
+}
+
+- (BOOL)isExistTabBar
+{
+    return YES;
+}
+
 - (UIView *)mainContentView
 {
     UIView *mainView = [[UIView alloc]initWithFrame:self.mainContentViewFrame];
@@ -21,9 +31,10 @@
 }
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navTitle = @"我";
 }
 
 - (void)didReceiveMemoryWarning {

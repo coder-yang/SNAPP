@@ -19,6 +19,8 @@
 @synthesize mainContentViewFrame;
 @synthesize customNav;
 @synthesize navTitle;
+@synthesize backBtnLabel;
+@synthesize backText;
 
 //返回主内容视图，默认值为空，如果继承BaseViewController，一般都需要重写此方法。重写此方法后，则不能重写loadView方法，不然会导致此方法失效。如果不重写此方法，一定要重写loadView方法，这样才能保证视图初始化成功。
 - (UIView *)mainContentView
@@ -26,11 +28,17 @@
     return nil;
 }
 
+//默认返回no，如有需要，子类重写
+- (BOOL)isExistTabBar
+{
+    return NO;
+}
+
 //初始化主内容视图位置
 - (void)initMainContentViewFrame
 {
     CGRect rect = [UIScreen mainScreen].bounds;
-    mainContentViewFrame = CGRectMake(0, StatusBarHeight+NavHeight, rect.size.width, rect.size.height-StatusBarHeight-NavHeight);
+    mainContentViewFrame = CGRectMake(0, StatusBarHeight+NavHeight, rect.size.width, rect.size.height-StatusBarHeight-NavHeight-([self isExistTabBar]?kTabbarHeight:0));
 }
 
 /**
@@ -61,9 +69,19 @@
     {
         customNav.userInteractionEnabled = YES;
         UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        leftButton.frame = CGRectMake(0, StatusBarHeight, 50, 44); //14*25
-        [leftButton setImageEdgeInsets:UIEdgeInsetsMake(10, 11, 10, 25)]; //top, left, bottom, right
-        [leftButton setImage:[UIImage imageNamed:@"icon_return_gray"] forState:UIControlStateNormal];
+        leftButton.frame = CGRectMake(0, StatusBarHeight, 110, 44);
+        
+        UIImageView *backImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 7, 15, 30)];
+        backImgView.image = [UIImage imageNamed:@"navigationbar_back_withtext"];
+        [leftButton addSubview:backImgView];
+        
+        backBtnLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, 60, 44)];
+        backBtnLabel.backgroundColor = [UIColor clearColor];
+        backBtnLabel.font = SystemFont_14;
+        backBtnLabel.textColor = [UIColor blackColor];
+        backBtnLabel.text = self.backText;
+        [leftButton addSubview:backBtnLabel];
+        
         [leftButton addTarget:self action:@selector(onBackButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [customNav addSubview:leftButton];
     }
@@ -100,6 +118,11 @@
 - (BOOL)showTitle
 {
     return YES;
+}
+
+- (NSString *)navTitle
+{
+    return titleLabel.text;
 }
 
 - (void)setNavTitle:(NSString *)aTitle

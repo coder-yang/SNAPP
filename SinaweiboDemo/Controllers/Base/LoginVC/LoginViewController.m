@@ -70,8 +70,8 @@
     [defaults synchronize];
     
     MainViewController *main = [[MainViewController alloc]init];
-    UIWindow *keyWindiw = [UIApplication sharedApplication].windows[0];
-    keyWindiw.rootViewController = main;
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    window.rootViewController = main;
 }
 
 - (void)didReceiveMemoryWarning

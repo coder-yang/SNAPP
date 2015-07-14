@@ -43,9 +43,12 @@
 #define BoldSystemFont_16 [UIFont boldSystemFontOfSize:16]
 
 #define ContentFont [UIFont systemFontOfSize:16]  //内容字体
-#define NavTitleFont [UIFont boldSystemFontOfSize:18] //导航栏标题字体
-#define kArticleTitleFont [UIFont boldSystemFontOfSize:16] //新闻标题字体
+#define NavTitleFont [UIFont systemFontOfSize:16] //导航栏标题字体
 
+//是否为iOS7
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+//是否为iOS8及以上系统
+#define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
 
 //文件缓存路径
 #define CachePath ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0])

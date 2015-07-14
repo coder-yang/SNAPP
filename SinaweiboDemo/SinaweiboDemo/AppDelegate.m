@@ -10,9 +10,9 @@
 #import "MainViewController.h"
 #import "LoginViewController.h"
 #import "NSString+Expand.h"
-#import "HomeVC.h"
 
 @implementation AppDelegate
+@synthesize tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -30,10 +30,6 @@
     {
         MainViewController *main = [[MainViewController alloc]init];
         self.window.rootViewController = main;
-
-//        HomeVC *home = [[HomeVC alloc]init];
-//        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:home];
-//        self.window.rootViewController = nav;
     }
 
     [self.window makeKeyAndVisible];
