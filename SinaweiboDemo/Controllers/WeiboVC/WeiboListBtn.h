@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#define kBtnWidth (kScreenWith/3)
+#define kBtnHeight 30
 
 @interface WeiboListBtn : UIButton
 @property (nonatomic, strong) UIImageView *leftImg;

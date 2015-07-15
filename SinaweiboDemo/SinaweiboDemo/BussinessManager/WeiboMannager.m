@@ -44,6 +44,28 @@
         {
             DLog(@"%@",error);
         }
+        else
+        {
+            for(WeiboEntity *entity in resultArr)
+            {
+                NSDate *createDate = [entity.created_at dateValueWithFormatString:@"EEE MMM dd HH:mm:ss Z yyyy"];
+                NSString *timeStr = [NSString stringFromDate:createDate format:@"yyyy/MM/dd HH:mm:ss"];
+                NSString *curTimeStr = [NSString stringFromDate:[NSDate date] format:@"yyyy/MM/dd HH:mm:ss"];
+                entity.created_at = [NSString getTimeInterval:timeStr currentTime:curTimeStr];
+
+                NSArray *tempArr1 = [entity.source componentsSeparatedByString:@">"];
+                NSArray *tempArr2;
+                if(tempArr1.count > 2)
+                {
+                    tempArr2 = [tempArr1[1] componentsSeparatedByString:@"<"];
+                    entity.source = tempArr2[0];
+                }
+                else
+                {
+                    entity.source = @"";
+                }
+            }
+        }
         
         WeiboEntity *weiboEntity = resultArr[0];
         User *user = weiboEntity.user;

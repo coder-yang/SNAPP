@@ -29,6 +29,7 @@
 @property (nonatomic, strong) UIImageView *hLine2;
 @property (nonatomic, strong) WeiboListBtn *praiseBtn;
 @property (nonatomic, strong) UIImageView *bottomLine;
+@property (nonatomic, strong) UILabel *fromLabel;
 
 - (void)layoutCellWithEntity:(WeiboEntity *)entity;
 

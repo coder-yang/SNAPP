@@ -50,6 +50,8 @@
     m_tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWith, self.mainContentViewFrame.size.height)];
     m_tableView.dataSource = self;
     m_tableView.delegate = self;
+    m_tableView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
+    m_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [mainView addSubview:m_tableView];
     
     return mainView;
@@ -91,7 +93,7 @@
     
     float textHeight = [entity.weiboText getHeightByWidth:kScreenWith-20 font:WeiboTextFont];
     
-    return 10+30+textHeight+10+40+10+90;
+    return 30+textHeight+10+40+10+90;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

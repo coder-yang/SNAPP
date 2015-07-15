@@ -7,7 +7,6 @@
 //
 
 #import "WeiboListBtn.h"
-#define kBtnWidth ((kScreenWith-2)/3)
 
 @implementation WeiboListBtn
 @synthesize leftImg;
@@ -17,13 +16,13 @@
 {
     if(self = [super init])
     {
-        leftImg = [[UIImageView alloc]initWithFrame:CGRectMake(kBtnWidth/2-20, 5, 20, 20)];
+        leftImg = [[UIImageView alloc]initWithFrame:CGRectMake(kBtnWidth/2-15, (kBtnHeight-15)/2, 15, 15)];
         [self addSubview:leftImg];
         
-        rightLb = [[UILabel alloc]initWithFrame:CGRectMake(kBtnWidth/2+10, 0, kBtnWidth/2, 30)];
+        rightLb = [[UILabel alloc]initWithFrame:CGRectMake(kBtnWidth/2+5, 0, kBtnWidth/2, kBtnHeight)];
         rightLb.backgroundColor = [UIColor clearColor];
         rightLb.textColor = [UIColor grayColor];
-        rightLb.font = SystemFont_14;
+        rightLb.font = SystemFont_12;
         [self addSubview:rightLb];
     }
     return self;
