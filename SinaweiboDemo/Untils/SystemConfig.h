@@ -21,6 +21,7 @@
 #define kNoComment @"快抢沙发！"
 #define KDefaultImageName @"icon_default_image"
 #define kWeiboName @"微博"
+#define kImgsCache @"ImgsCache"
 
 #define NoNetworkViewHeight 80
 #define kTabbarHeight 44
@@ -44,6 +45,7 @@
 
 #define ContentFont [UIFont systemFontOfSize:16]  //内容字体
 #define NavTitleFont [UIFont systemFontOfSize:16] //导航栏标题字体
+#define WeiboTextFont [UIFont systemFontOfSize:14]
 
 //是否为iOS7
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)

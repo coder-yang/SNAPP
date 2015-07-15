@@ -10,6 +10,7 @@
 #import "BussinessManager.h"
 #import "NSMutableDictionary+Extend.h"
 #import "WeiboDetailVC.h"
+#import "WeiboListCell.h"
 
 @interface HomeVC ()
 {
@@ -84,17 +85,25 @@
     return m_dataArr.count;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WeiboEntity *entity = m_dataArr[indexPath.row];
+    
+    float textHeight = [entity.weiboText getHeightByWidth:kScreenWith-20 font:WeiboTextFont];
+    
+    return 10+30+textHeight+10+40+10+90;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentify = @"cellIdentify";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentify];
+    WeiboListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentify];
     if(cell == nil)
     {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentify];
+        cell = [[WeiboListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentify];
     }
     
-    WeiboEntity *entity = m_dataArr[indexPath.row];
-    cell.textLabel.text = entity.weiboText;
+    [cell layoutCellWithEntity:m_dataArr[indexPath.row]];
     
     return cell;
 }
@@ -104,6 +113,9 @@
     WeiboDetailVC *detailVC = [[WeiboDetailVC alloc]init];
     detailVC.backText = self.tabBarItem.title;
     [self.navigationController pushViewController:detailVC animated:YES];
+    
+    //消除cell选中
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - 网络请求
