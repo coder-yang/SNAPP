@@ -12,7 +12,7 @@
 @interface WeiboMannager : NSObject
 
 - (void)requestFriendTimeLine:(NSMutableDictionary *)params
-                      success:(void (^)(NSMutableArray *))success
+                      success:(void (^)(NSMutableArray *, NSInteger))success
                          fail:(void(^)(NSString *))fail;
 
 @end

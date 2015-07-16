@@ -20,6 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     myWebView = [[UIWebView alloc]initWithFrame:[UIScreen mainScreen].applicationFrame];
     myWebView.scrollView.scrollEnabled = NO;
     myWebView.delegate = self;

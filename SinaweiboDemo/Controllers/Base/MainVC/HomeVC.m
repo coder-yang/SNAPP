@@ -17,7 +17,8 @@
 {
     UITableView *m_tableView;
     NSMutableArray *m_dataArr;
-    int page;
+    NSInteger page;
+    NSInteger totalPage;
     BOOL isLoadMore;
 }
 @end
@@ -59,7 +60,8 @@
     __weak HomeVC *weakSelf = self;
 
     [m_tableView addLegendFooterWithRefreshingBlock:^{
-        page = page+1;
+//        page += 1;
+        page++;
         isLoadMore = YES;
         [weakSelf requestFriendTimeLine];
     }];
@@ -159,20 +161,32 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObjectExtra:kSinaKey forKey:@"source"];
     [params setObjectExtra:[SystemSetting getAccesstoken] forKey:@"access_token"];
-    [params setObjectExtra:[NSNumber numberWithInt:kPageCount] forKey:@"count"];
-    [params setObjectExtra:[NSNumber numberWithInt:page] forKey:@"page"];
+    [params setObjectExtra:[NSNumber numberWithInteger:kPageCount] forKey:@"count"];
+    [params setObjectExtra:[NSNumber numberWithInteger:page] forKey:@"page"];
     
-    [[BussinessManager sharedBussinessManager].weiboManager requestFriendTimeLine:params success:^(NSMutableArray *resultArr) {
+    [[BussinessManager sharedBussinessManager].weiboManager requestFriendTimeLine:params success:^(NSMutableArray *resultArr, NSInteger aTotalPage) {
         
-        m_tableView.footer.hidden = NO;
+        totalPage = aTotalPage;
         
         if(isLoadMore)
         {//加载更多
-            [m_dataArr addObjectsFromArray:resultArr];
+            if(page < totalPage)
+            {
+                [m_dataArr addObjectsFromArray:resultArr];
+            }
+            else
+            {
+                page = totalPage;
+                [m_tableView.footer setTitle:@"全部加载完，没有更多了" forState:MJRefreshFooterStateIdle];
+                m_tableView.footer.userInteractionEnabled = NO;
+            }
+            
             [m_tableView.footer endRefreshing];
         }
         else
         {//下拉刷新
+            m_tableView.footer.hidden = NO;
+
             [m_dataArr removeAllObjects];
             m_dataArr = resultArr;
             [m_tableView.header endRefreshing];
@@ -192,7 +206,6 @@
         {
             [m_tableView.header endRefreshing];
         }
-
     }];
 }
 

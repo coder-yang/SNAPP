@@ -14,7 +14,7 @@
 @implementation WeiboMannager
 
 - (void)requestFriendTimeLine:(NSMutableDictionary *)params
-                      success:(void (^)(NSMutableArray *))success
+                      success:(void (^)(NSMutableArray *, NSInteger))success
                          fail:(void (^)(NSString *))fail
 {
     NSString *url = [NSString stringWithFormat:@"%@%@",kServiceRoot,kRequestFriendTimeLine];
@@ -22,6 +22,8 @@
     [[BaseService sharedBaseService] getRequestDataFromServiceWithUrl:url params:params operationId:kRequestFriendTimeLineTag success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSMutableArray *responseArr = [responseObject objectForKey:@"statuses"];
+        NSInteger totalNumber = [[responseObject objectForKey:@"total_number"]integerValue];
+        NSInteger totalPage = ceil((float)totalNumber/kPageCount);
         
         //数组转模型数组
         [WeiboEntity setupReplacedKeyFromPropertyName:^NSDictionary *{
@@ -58,7 +60,7 @@
             }
         }
         
-        success(resultArr);
+        success(resultArr,totalPage);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

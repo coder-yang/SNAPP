@@ -25,7 +25,7 @@
 
 #define NoNetworkViewHeight 80
 #define kTabbarHeight 44
-#define kPageCount 20
+#define kPageCount 40
 
 #define ViewBackgroundColor 0xf2f2f2
 

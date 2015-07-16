@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import "LoginViewController.h"
 #import "NSString+Expand.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @implementation AppDelegate
 @synthesize tabBarController;
@@ -18,6 +19,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
     NSString *accessToken = [userDefaults objectForKey:kAccessToken];
