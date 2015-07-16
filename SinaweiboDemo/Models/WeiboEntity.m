@@ -17,6 +17,7 @@
 @synthesize source;
 @synthesize favorited;
 @synthesize truncated;
+@synthesize retweeted_status;
 @synthesize thumbnail_pic;
 @synthesize bmiddle_pic;
 @synthesize original_pic;

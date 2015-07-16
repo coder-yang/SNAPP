@@ -15,7 +15,8 @@
 @synthesize userNameLb;
 @synthesize createTimeLb;
 @synthesize sourceLb;
-@synthesize textLabel;
+@synthesize textLb;
+@synthesize retweetView;
 @synthesize imageView;
 @synthesize spaceLine;
 @synthesize reportsBtn;
@@ -45,35 +46,35 @@
         userNameLb.textColor = [UIColor blackColor];
         [self addSubview:userNameLb];
         
-        createTimeLb = [[UILabel alloc]initWithFrame:CGRectMake(ORIGINX(userNameLb), ORIGINY(userNameLb)+HEIGHT(userNameLb)+5, 50, 10)];
+        createTimeLb = [[UILabel alloc]init];
         createTimeLb.backgroundColor = [UIColor clearColor];
         createTimeLb.textColor = [UIColor grayColor];
         createTimeLb.font = SystemFont_10;
         [self addSubview:createTimeLb];
         
-        fromLabel = [[UILabel alloc]initWithFrame:CGRectMake(ORIGINX(createTimeLb)+WIDTH(createTimeLb), ORIGINY(createTimeLb), 30, 10)];
+        fromLabel = [[UILabel alloc]init];
         fromLabel.backgroundColor = [UIColor clearColor];
         fromLabel.textColor = [UIColor grayColor];
         fromLabel.text = @"来自";
         fromLabel.font = SystemFont_10;
         [self addSubview:fromLabel];
         
-        sourceLb = [[UILabel alloc]initWithFrame:CGRectMake(ORIGINX(fromLabel)+WIDTH(fromLabel), ORIGINY(fromLabel), 200, 10)];
+        sourceLb = [[UILabel alloc]init];
         sourceLb.backgroundColor = [UIColor clearColor];
         sourceLb.textColor = [UIColor grayColor];
         sourceLb.font = SystemFont_10;
         [self addSubview:sourceLb];
         
-        textLabel = [[UILabel alloc]init];
-        textLabel.backgroundColor = [UIColor clearColor];
-        textLabel.font = [UIFont systemFontOfSize:14];
-        textLabel.textColor = [UIColor blackColor];
-        textLabel.numberOfLines = 0;
-        textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        [self addSubview:textLabel];
+        textLb = [[UILabel alloc]init];
+        textLb.backgroundColor = [UIColor clearColor];
+        textLb.font = [UIFont systemFontOfSize:14];
+        textLb.textColor = [UIColor blackColor];
+        textLb.numberOfLines = 0;
+        textLb.lineBreakMode = NSLineBreakByWordWrapping;
+        [self addSubview:textLb];
         
-        imageView = [[UIImageView alloc]init];
-        [self addSubview:imageView];
+        retweetView = [[ReweetView alloc]init];
+        [self addSubview:retweetView];
         
         spaceLine = [[UIImageView alloc]init];
         spaceLine.image = [UIImage imageNamed:@"icon_horizontal_line"];
@@ -142,21 +143,42 @@
     }
     
     float textHeight = [entity.weiboText getHeightByWidth:kScreenWith-20 font:WeiboTextFont];
-    textLabel.frame = CGRectMake(10, ORIGINY(userImg)+HEIGHT(userImg)+10, kScreenWith-20, textHeight);
-    textLabel.font = WeiboTextFont;
-    textLabel.text = entity.weiboText;
+    textLb.frame = CGRectMake(10, ORIGINY(userImg)+HEIGHT(userImg)+10, kScreenWith-20, textHeight);
+    textLb.font = WeiboTextFont;
+    textLb.text = entity.weiboText;
     
-    imageView.frame = CGRectMake(10, ORIGINY(textLabel)+HEIGHT(textLabel)+10, 70, 70);
-    [imageView sd_setImageWithURL:[NSURL URLWithString:entity.thumbnail_pic] placeholderImage:[UIImage imageNamed:KDefaultImageName]];
-
-    spaceLine.frame = CGRectMake(0, ORIGINY(imageView)+HEIGHT(imageView)+9, kScreenWith, 0.5);
-    reportsBtn.frame = CGRectMake(0, ORIGINY(imageView)+HEIGHT(imageView)+10, kBtnWidth, kBtnHeight);
+    if(!imageView)
+    {
+        imageView = [[UIImageView alloc]init];
+        [self addSubview:imageView];
+    }
+    
+    if(!retweetView)
+    {
+        retweetView = [[ReweetView alloc]init];
+        [self addSubview:retweetView];
+    }
+    
+    if(entity.retweeted_status)
+    {
+        imageView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 0, 0);
+        [retweetView layoutWithEntity:entity];
+        retweetView.frame = CGRectMake(0, ORIGINY(textLb)+HEIGHT(textLb)+10, kScreenWith, HEIGHT(retweetView.reweetTextLb)+20);
+        spaceLine.frame = CGRectMake(0, ORIGINY(retweetView)+HEIGHT(retweetView)+9, kScreenWith, 0.5);
+    }
+    else
+    {
+        imageView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 70, 70);
+        [imageView sd_setImageWithURL:[NSURL URLWithString:entity.thumbnail_pic] placeholderImage:[UIImage imageNamed:KDefaultImageName]];
+        spaceLine.frame = CGRectMake(0, ORIGINY(imageView)+HEIGHT(imageView)+9, kScreenWith, 0.5);
+    }
+    
+    reportsBtn.frame = CGRectMake(0, ORIGINY(spaceLine)+HEIGHT(spaceLine), kBtnWidth, kBtnHeight);
     hLine1.frame = CGRectMake(ORIGINX(reportsBtn)+WIDTH(reportsBtn), ORIGINY(reportsBtn)+5, 0.5, 20);
     commentBtn.frame = CGRectMake(ORIGINX(reportsBtn)+WIDTH(reportsBtn)+0.5, ORIGINY(reportsBtn), kBtnWidth, kBtnHeight);
     hLine2.frame = CGRectMake(ORIGINX(commentBtn)+WIDTH(commentBtn), ORIGINY(commentBtn)+5, 0.5, 20);
     praiseBtn.frame = CGRectMake(ORIGINX(commentBtn)+WIDTH(commentBtn)+0.5, ORIGINY(commentBtn), kBtnWidth, kBtnHeight);
     bottomLine.frame = CGRectMake(0, ORIGINY(praiseBtn)+HEIGHT(praiseBtn)-0.5, kScreenWith, 0.5);
-//    spaceView.frame = CGRectMake(0,ORIGINY(praiseBtn)+HEIGHT(praiseBtn), kScreenWith, 10);
 }
 
 @end

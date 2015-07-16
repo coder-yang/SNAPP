@@ -22,7 +22,7 @@
         rightLb = [[UILabel alloc]initWithFrame:CGRectMake(kBtnWidth/2+5, 0, kBtnWidth/2, kBtnHeight)];
         rightLb.backgroundColor = [UIColor clearColor];
         rightLb.textColor = [UIColor grayColor];
-        rightLb.font = SystemFont_12;
+        rightLb.font = SystemFont_10;
         [self addSubview:rightLb];
     }
     return self;

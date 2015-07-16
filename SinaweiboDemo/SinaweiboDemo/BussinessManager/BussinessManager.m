@@ -9,6 +9,7 @@
 #import "BussinessManager.h"
 
 @implementation BussinessManager
+
 @synthesize weiboManager;
 
 + (instancetype)sharedBussinessManager

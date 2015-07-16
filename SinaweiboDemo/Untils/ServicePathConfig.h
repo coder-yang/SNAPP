@@ -31,5 +31,3 @@ typedef enum
  */
 #define kRequestFriendTimeLine @"statuses/friends_timeline.json"
 
-//#define kRequestFriendTimeLine @"statuses/public_timeline.json"
-

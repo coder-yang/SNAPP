@@ -11,12 +11,14 @@
 #import "NSMutableDictionary+Extend.h"
 #import "WeiboDetailVC.h"
 #import "WeiboListCell.h"
+#import "MJRefresh.h"
 
 @interface HomeVC ()
 {
     UITableView *m_tableView;
     NSMutableArray *m_dataArr;
     int page;
+    BOOL isLoadMore;
 }
 @end
 
@@ -54,6 +56,23 @@
     m_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [mainView addSubview:m_tableView];
     
+    __weak HomeVC *weakSelf = self;
+
+    [m_tableView addLegendFooterWithRefreshingBlock:^{
+        page = page+1;
+        isLoadMore = YES;
+        [weakSelf requestFriendTimeLine];
+    }];
+    
+    [m_tableView addLegendHeaderWithRefreshingBlock:^{
+        page = 1;
+        isLoadMore = NO;
+        [weakSelf requestFriendTimeLine];
+    }];
+    
+    m_tableView.header.updatedTimeHidden = YES;
+    m_tableView.footer.hidden = YES;
+    
     return mainView;
 }
 
@@ -74,7 +93,7 @@
     self.navTitle = @"微博";
     self.customNav.userInteractionEnabled = YES;
     
-    [self requestFriendTimeLine];
+    [m_tableView.header beginRefreshing];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -92,8 +111,10 @@
     WeiboEntity *entity = m_dataArr[indexPath.row];
     
     float textHeight = [entity.weiboText getHeightByWidth:kScreenWith-20 font:WeiboTextFont];
-    
-    return 30+textHeight+10+40+10+90;
+    NSString *retweetStr = [NSString stringWithFormat:@"@%@ %@", entity.retweeted_status.user.name,entity.retweeted_status.weiboText];
+    float retweetHeight = [retweetStr getHeightByWidth:kScreenWith-20 font:RetweetWeiboTextFont]+20;
+
+    return 50+textHeight+kBtnHeight+10+(entity.retweeted_status?retweetHeight+20:90);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,7 +126,19 @@
         cell = [[WeiboListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentify];
     }
     
-    [cell layoutCellWithEntity:m_dataArr[indexPath.row]];
+    if(cell.imageView)
+    {
+        [cell.imgView removeFromSuperview];
+        cell.imgView = nil;
+    }
+    if(cell.retweetView)
+    {
+        [cell.retweetView removeFromSuperview];
+        cell.retweetView = nil;
+    }
+    
+    WeiboEntity *entity = m_dataArr[indexPath.row];
+    [cell layoutCellWithEntity:entity];
     
     return cell;
 }
@@ -131,11 +164,35 @@
     
     [[BussinessManager sharedBussinessManager].weiboManager requestFriendTimeLine:params success:^(NSMutableArray *resultArr) {
         
-        m_dataArr = resultArr;
+        m_tableView.footer.hidden = NO;
+        
+        if(isLoadMore)
+        {//加载更多
+            [m_dataArr addObjectsFromArray:resultArr];
+            [m_tableView.footer endRefreshing];
+        }
+        else
+        {//下拉刷新
+            [m_dataArr removeAllObjects];
+            m_dataArr = resultArr;
+            [m_tableView.header endRefreshing];
+        }
+        
         [m_tableView reloadData];
         
     } fail:^(NSString *errorStr) {
         
+        if(isLoadMore)
+        {
+            page--;
+            [m_tableView.footer endRefreshing];
+            [m_tableView.footer setTitle:@"加载失败，点击重试" forState:MJRefreshFooterStateIdle];
+        }
+        else
+        {
+            [m_tableView.header endRefreshing];
+        }
+
     }];
 }
 

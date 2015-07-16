@@ -10,6 +10,7 @@
 #import "WeiboListBtn.h"
 #import "WeiboEntity.h"
 #import "NSString+Expand.h"
+#import "ReweetView.h"
 
 @interface WeiboListCell : UITableViewCell
 {
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) UILabel *createTimeLb;
 @property (nonatomic, strong) UILabel *sourceLb;
 @property (nonatomic, strong) UILabel *textLb;
+@property (nonatomic, strong) ReweetView *retweetView;
 @property (nonatomic, strong) UIImageView *imgView;
 @property (nonatomic, strong) UIImageView *spaceLine;
 @property (nonatomic, strong) WeiboListBtn *reportsBtn;

@@ -46,9 +46,12 @@
 #define ContentFont [UIFont systemFontOfSize:16]  //内容字体
 #define NavTitleFont [UIFont systemFontOfSize:16] //导航栏标题字体
 #define WeiboTextFont [UIFont systemFontOfSize:14]
+#define RetweetWeiboTextFont [UIFont systemFontOfSize:12]
+
 
 //是否为iOS7
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+
 //是否为iOS8及以上系统
 #define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
 

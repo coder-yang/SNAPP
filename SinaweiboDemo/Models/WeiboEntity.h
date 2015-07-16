@@ -18,6 +18,7 @@
 @property(nonatomic, strong) NSString *source; //微博来源
 @property(nonatomic, assign) BOOL favorited; //是否已收藏，true：是，false：否
 @property(nonatomic, assign) BOOL truncated; //是否被截断，true：是，false：否
+@property(nonatomic, strong) WeiboEntity *retweeted_status; //被转发的微博
 @property(nonatomic, strong) NSString *thumbnail_pic;
 @property(nonatomic, strong) NSString *bmiddle_pic;
 @property(nonatomic, strong) NSString *original_pic;

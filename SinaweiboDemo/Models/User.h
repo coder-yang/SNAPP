@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface User : NSObject
+
 @property(nonatomic, assign) NSInteger uid; //用户UID  (原id)
 @property(nonatomic, strong) NSString *idstr; //字符串型的用户UID
 @property(nonatomic, strong) NSString *screen_name; //用户昵称

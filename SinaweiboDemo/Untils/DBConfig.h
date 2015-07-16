@@ -1,15 +1,13 @@
 //
 //  DBConfig.h
-//  Urundc_IOS
+//  SinaweiboDemo
 //
-//  Created by 杨方明 on 15/1/12.
-//  Copyright (c) 2015年 urun. All rights reserved.
+//  Created by 杨方明 on 15/7/16.
+//  Copyright (c) 2015年 Simon. All rights reserved.
 //
 
-#ifndef Urundc_IOS_DBConfig_h
-#define Urundc_IOS_DBConfig_h
-
-#define DBNAME @"urunNews.db"
+#ifndef SinaweiboDemo_DBConfig_h
+#define SinaweiboDemo_DBConfig_h
 
 
 #endif

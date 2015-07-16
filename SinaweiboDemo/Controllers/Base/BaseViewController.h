@@ -20,8 +20,6 @@
     MBProgressHUD *hud;
 }
 
-//@property (nonatomic, readonly) UIWindow *keyWindow;
-
 @property (nonatomic, strong) NSString *backText;
 
 @property (nonatomic, strong) UILabel *backBtnLabel;
