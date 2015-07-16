@@ -115,7 +115,6 @@
     NSString *retweetStr = [NSString stringWithFormat:@"@%@ %@", entity.retweeted_status.user.name,entity.retweeted_status.weiboText];
     float retweetHeight = [retweetStr getHeightByWidth:kScreenWith-20 font:RetweetWeiboTextFont]+20;
 
-//    return 50+textHeight+kBtnHeight+10+(entity.retweeted_status?retweetHeight+20:90);
     return 50+textHeight+kBtnHeight+10+(entity.retweeted_status?retweetHeight+20+([GridView getGridViewHeight:entity.retweeted_status.pic_urls]):[GridView getGridViewHeight:entity.pic_urls]+20);
 }
 
@@ -127,12 +126,7 @@
     {
         cell = [[WeiboListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentify];
     }
-    
-    if(cell.imageView)
-    {
-        [cell.imgView removeFromSuperview];
-        cell.imgView = nil;
-    }
+
     if(cell.retweetView)
     {
         [cell.retweetView removeFromSuperview];

@@ -17,7 +17,6 @@
 @synthesize sourceLb;
 @synthesize textLb;
 @synthesize retweetView;
-@synthesize imageView;
 @synthesize gridView;
 @synthesize spaceLine;
 @synthesize reportsBtn;
@@ -32,8 +31,6 @@
 {
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
     {
-        userDefault = [NSUserDefaults standardUserDefaults];
-        
         spaceView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWith, 10)];
         spaceView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
         [self addSubview:spaceView];
@@ -148,12 +145,6 @@
     textLb.font = WeiboTextFont;
     textLb.text = entity.weiboText;
     
-//    if(!imageView)
-//    {
-//        imageView = [[UIImageView alloc]init];
-//        [self addSubview:imageView];
-//    }
-    
     if(entity.retweeted_status)
     {
         if(!retweetView)
@@ -162,7 +153,6 @@
             [self addSubview:retweetView];
         }
         
-//        imageView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 0, 0);
         gridView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 0, 0);
 
         [retweetView layoutWithEntity:entity];
@@ -176,12 +166,10 @@
             gridView = [[GridView alloc]init];
             [self addSubview:gridView];
         }
-//        imageView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 70, 70);
 
         [gridView setSubViews:entity.pic_urls];
         gridView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, [GridView getGridViewWidth], [GridView getGridViewHeight:entity.pic_urls]);
         
-        [imageView sd_setImageWithURL:[NSURL URLWithString:entity.thumbnail_pic] placeholderImage:[UIImage imageNamed:KDefaultImageName]];
         spaceLine.frame = CGRectMake(0, ORIGINY(gridView)+HEIGHT(gridView)+9, kScreenWith, 0.5);
     }
     

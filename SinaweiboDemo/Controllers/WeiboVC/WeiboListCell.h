@@ -15,7 +15,6 @@
 
 @interface WeiboListCell : UITableViewCell
 {
-    NSUserDefaults *userDefault;
     UIView *spaceView;
 }
 @property (nonatomic, strong) UIImageView *userImg;
@@ -24,7 +23,6 @@
 @property (nonatomic, strong) UILabel *sourceLb;
 @property (nonatomic, strong) UILabel *textLb;
 @property (nonatomic, strong) ReweetView *retweetView;
-@property (nonatomic, strong) UIImageView *imgView;
 @property (nonatomic, strong) GridView *gridView;
 @property (nonatomic, strong) UIImageView *spaceLine;
 @property (nonatomic, strong) WeiboListBtn *reportsBtn;
