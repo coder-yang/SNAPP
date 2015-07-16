@@ -18,6 +18,7 @@
 @synthesize textLb;
 @synthesize retweetView;
 @synthesize imageView;
+@synthesize gridView;
 @synthesize spaceLine;
 @synthesize reportsBtn;
 @synthesize hLine1;
@@ -147,30 +148,41 @@
     textLb.font = WeiboTextFont;
     textLb.text = entity.weiboText;
     
-    if(!imageView)
-    {
-        imageView = [[UIImageView alloc]init];
-        [self addSubview:imageView];
-    }
-    
-    if(!retweetView)
-    {
-        retweetView = [[ReweetView alloc]init];
-        [self addSubview:retweetView];
-    }
+//    if(!imageView)
+//    {
+//        imageView = [[UIImageView alloc]init];
+//        [self addSubview:imageView];
+//    }
     
     if(entity.retweeted_status)
     {
-        imageView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 0, 0);
+        if(!retweetView)
+        {
+            retweetView = [[ReweetView alloc]init];
+            [self addSubview:retweetView];
+        }
+        
+//        imageView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 0, 0);
+        gridView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 0, 0);
+
         [retweetView layoutWithEntity:entity];
-        retweetView.frame = CGRectMake(0, ORIGINY(textLb)+HEIGHT(textLb)+10, kScreenWith, HEIGHT(retweetView.reweetTextLb)+20);
+        retweetView.frame = CGRectMake(0, ORIGINY(textLb)+HEIGHT(textLb)+10, kScreenWith, HEIGHT(retweetView.reweetTextLb)+20+[GridView getGridViewHeight:entity.retweeted_status.pic_urls]);
         spaceLine.frame = CGRectMake(0, ORIGINY(retweetView)+HEIGHT(retweetView)+9, kScreenWith, 0.5);
     }
     else
     {
-        imageView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 70, 70);
+        if(!gridView)
+        {
+            gridView = [[GridView alloc]init];
+            [self addSubview:gridView];
+        }
+//        imageView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 70, 70);
+
+        [gridView setSubViews:entity.pic_urls];
+        gridView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, [GridView getGridViewWidth], [GridView getGridViewHeight:entity.pic_urls]);
+        
         [imageView sd_setImageWithURL:[NSURL URLWithString:entity.thumbnail_pic] placeholderImage:[UIImage imageNamed:KDefaultImageName]];
-        spaceLine.frame = CGRectMake(0, ORIGINY(imageView)+HEIGHT(imageView)+9, kScreenWith, 0.5);
+        spaceLine.frame = CGRectMake(0, ORIGINY(gridView)+HEIGHT(gridView)+9, kScreenWith, 0.5);
     }
     
     reportsBtn.frame = CGRectMake(0, ORIGINY(spaceLine)+HEIGHT(spaceLine), kBtnWidth, kBtnHeight);

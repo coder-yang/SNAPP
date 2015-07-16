@@ -60,8 +60,7 @@
     __weak HomeVC *weakSelf = self;
 
     [m_tableView addLegendFooterWithRefreshingBlock:^{
-//        page += 1;
-        page++;
+        page += 1;
         isLoadMore = YES;
         [weakSelf requestFriendTimeLine];
     }];
@@ -116,7 +115,8 @@
     NSString *retweetStr = [NSString stringWithFormat:@"@%@ %@", entity.retweeted_status.user.name,entity.retweeted_status.weiboText];
     float retweetHeight = [retweetStr getHeightByWidth:kScreenWith-20 font:RetweetWeiboTextFont]+20;
 
-    return 50+textHeight+kBtnHeight+10+(entity.retweeted_status?retweetHeight+20:90);
+//    return 50+textHeight+kBtnHeight+10+(entity.retweeted_status?retweetHeight+20:90);
+    return 50+textHeight+kBtnHeight+10+(entity.retweeted_status?retweetHeight+20+([GridView getGridViewHeight:entity.retweeted_status.pic_urls]):[GridView getGridViewHeight:entity.pic_urls]+20);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -137,6 +137,11 @@
     {
         [cell.retweetView removeFromSuperview];
         cell.retweetView = nil;
+    }
+    if(cell.gridView)
+    {
+        [cell.gridView removeFromSuperview];
+        cell.gridView = nil;
     }
     
     WeiboEntity *entity = m_dataArr[indexPath.row];
@@ -198,7 +203,7 @@
         
         if(isLoadMore)
         {
-            page--;
+            page--; //网络请求失败，执行减操作，上拉的时候加了1，需要减1，保持当前失败的页码
             [m_tableView.footer endRefreshing];
             [m_tableView.footer setTitle:@"加载失败，点击重试" forState:MJRefreshFooterStateIdle];
         }

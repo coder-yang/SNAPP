@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "WeiboEntity.h"
+#import "GridView.h"
 
 @interface ReweetView : UIView
+
 @property(nonatomic, strong) UILabel *reweetTextLb;
+
+@property(nonatomic, strong) GridView *gridView;
 
 - (instancetype)init;
 

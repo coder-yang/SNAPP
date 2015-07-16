@@ -7,26 +7,44 @@
 //
 
 #import "GridView.h"
+#import "UIImageView+WebCache.h"
+#import "UIColor+Expand.h"
 
 @implementation GridView
 
-- (instancetype)initWithFrame:(CGRect)frame
++ (float)getGridViewWidth
 {
-    if(self = [super initWithFrame:frame])
+    return kCount*(kImgWidth + kMarginX) - kMarginX;
+}
+
++ (float)getGridViewHeight:(NSArray *)aImgs
+{
+    if(aImgs.count>0)
     {
-        
+        return ((aImgs.count/3)+((aImgs.count%3>0)?1:0))*(kImgHeight + kMarginY) - kMarginY + 10;
     }
-    return self;
+    else
+    {
+        return 0.0;
+    }
 }
 
--(float)getGridViewHeight:(NSArray *)aImgs
+- (void)setSubViews:(NSArray *)aImgs
 {
-    return 0.0;
-}
-
--(void)setGridView:(NSArray *)aImgs
-{
-    
+    for(int i=0; i<aImgs.count; i++)
+    {
+        NSInteger column = i%kCount; //列
+        NSInteger line = i/kCount; //行
+        NSLog(@"%ld行 %ld列",(long)line,(long)column);
+        
+        NSURL *imgUrl = [NSURL URLWithString:[aImgs[i] objectForKey:@"thumbnail_pic"]];
+        UIImageView *imgView = [[UIImageView alloc]init];
+        imgView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
+        imgView.frame = CGRectMake(column * (kImgWidth + kMarginX), line * (kMarginY + kImgHeight), kImgWidth, kImgHeight);
+        [imgView sd_setImageWithURL:imgUrl placeholderImage:nil];
+        [self addSubview:imgView];
+    }
+    self.frame = CGRectMake(0, 0, [GridView getGridViewWidth], [GridView getGridViewHeight:aImgs]);
 }
 
 @end

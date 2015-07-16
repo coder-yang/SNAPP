@@ -12,6 +12,8 @@
 #import "NSString+Expand.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
+#import "GridView.h"
+
 @implementation AppDelegate
 @synthesize tabBarController;
 
@@ -34,6 +36,17 @@
         MainViewController *main = [[MainViewController alloc]init];
         self.window.rootViewController = main;
     }
+    
+//    NSMutableArray *arr = [NSMutableArray array];
+//    for(int i=0; i<7; i++)
+//    {
+//        [arr addObject:@"1"];
+//    }
+//    
+//    GridView *gridView = [[GridView alloc]init];
+//    gridView.backgroundColor = [UIColor grayColor];
+//    [gridView setSubViews:arr];
+//    [self.window addSubview:gridView];
 
     [self.window makeKeyAndVisible];
     return YES;

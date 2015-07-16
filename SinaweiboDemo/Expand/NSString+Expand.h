@@ -23,9 +23,6 @@
 
 + (NSString *)GetMd5:(NSString *)string;
 
-
-+ (NSString *)getPhoneSN;
-
 + (NSString *) md5:(NSString *)str lenth:(int)lenth;
 
 + (NSString *)replaceNullByStr:(NSObject *)source string:(NSString *)str;

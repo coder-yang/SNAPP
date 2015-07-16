@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#define kImgWidth 70
+#define kImgHeight 70
+#define kMarginX 5
+#define kMarginY 5
+#define kCount 3
 
 @interface GridView : UIView
 
-- (float)getGridViewHeight:(NSArray *)aImgs;
++ (float)getGridViewWidth;
 
-- (void)setGridView:(NSArray *)aImgs;
++ (float)getGridViewHeight:(NSArray *)aImgs;
+
+- (void)setSubViews:(NSArray *)aImgs;
 
 @end
