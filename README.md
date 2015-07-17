@@ -5,6 +5,6 @@
 
 效果图
 
-<img src="https://github.com/FMYang/SNAPP/blob/master/SinaweiboDemo/Screenshots/screenshots.png" width="100" height="100">
+<img src="https://github.com/FMYang/SNAPP/blob/master/SinaweiboDemo/Screenshots/screenshots.png" width="375" height="667">
 
-<img width=200; height=200/>![image](https://github.com/FMYang/SNAPP/blob/master/SinaweiboDemo/Screenshots/screenshots.png)</img>
+//<img width=200; height=200/>![image](https://github.com/FMYang/SNAPP/blob/master/SinaweiboDemo/Screenshots/screenshots.png)</img>
