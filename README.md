@@ -5,4 +5,4 @@
 
 效果图
 
-<img width=200; height=200/>![image](https://github.com/FMYang/SNAPP/blob/master/SinaweiboDemo/Screenshots/screenshots.png)
+<img width=200; height=200/>![image](https://github.com/FMYang/SNAPP/blob/master/SinaweiboDemo/Screenshots/screenshots.png)</img>
