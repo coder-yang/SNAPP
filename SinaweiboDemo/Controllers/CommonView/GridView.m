@@ -9,6 +9,7 @@
 #import "GridView.h"
 #import "UIImageView+WebCache.h"
 #import "UIColor+Expand.h"
+#import "UIImageView+Extend.h"
 
 @implementation GridView
 
@@ -35,13 +36,36 @@
     {
         NSInteger column = i%kCount; //列
         NSInteger line = i/kCount; //行
-        NSLog(@"%ld行 %ld列",(long)line,(long)column);
         
-        NSURL *imgUrl = [NSURL URLWithString:[aImgs[i] objectForKey:@"thumbnail_pic"]];
+        NSURL *imgUrl = nil;
+        if([aImgs[i] objectForKey:@"original_pic"])
+        {
+            imgUrl = [NSURL URLWithString:[aImgs[i] objectForKey:@"original_pic"]];
+        }
+        else if([aImgs[i] objectForKey:@"bmiddle_pic"])
+        {
+            imgUrl = [NSURL URLWithString:[aImgs[i] objectForKey:@"bmiddle_pic"]];
+        }
+        else
+        {
+            imgUrl = [NSURL URLWithString:[aImgs[i] objectForKey:@"thumbnail_pic"]];
+        }
         UIImageView *imgView = [[UIImageView alloc]init];
         imgView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
         imgView.frame = CGRectMake(column * (kImgWidth + kMarginX), line * (kMarginY + kImgHeight), kImgWidth, kImgHeight);
-        [imgView sd_setImageWithURL:imgUrl placeholderImage:nil];
+        [imgView sd_setImageWithURL:imgUrl placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if(error)
+            {
+                DLog(@"%@",error);
+            }
+            else
+            {
+                if(image)
+                {
+                    imgView.image = [imgView cutImageFromImage:image cutFrame:CGSizeMake(kImgWidth, kImgHeight)];
+                }
+            }
+        }];
         [self addSubview:imgView];
     }
     self.frame = CGRectMake(0, 0, [GridView getGridViewWidth], [GridView getGridViewHeight:aImgs]);

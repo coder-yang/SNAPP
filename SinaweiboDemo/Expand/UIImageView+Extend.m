@@ -27,13 +27,40 @@
     CGRect rect;
     //要裁剪的图片区域，按照原图的像素大小来，超过原图大小的边自动适配
     //
-    if(aImage.size.width>=aImage.size.height)
+    
+    float originx;
+    float originy;
+    
+    if(aImage.size.width == aImage.size.height)
     {
-        rect =  CGRectMake(0, 0, aImage.size.height, aImage.size.width*curRect.width/curRect.height);
+        return aImage;
+    }
+    
+    if(aImage.size.width > curRect.width)
+    {
+        originx = 0.5 * (aImage.size.width - curRect.width);
     }
     else
     {
-        rect =  CGRectMake(0, 0, aImage.size.width, aImage.size.width*curRect.height/curRect.width);
+        originx = 0;
+    }
+    
+    if(aImage.size.height > curRect.height)
+    {
+        originy = 0.5 * (aImage.size.height - curRect.height);
+    }
+    else
+    {
+        originy = 0;
+    }
+    
+    if(aImage.size.width>=aImage.size.height)
+    {
+        rect =  CGRectMake(originx, originy, aImage.size.height, aImage.size.width*curRect.width/curRect.height);
+    }
+    else
+    {
+        rect =  CGRectMake(originx, originy, aImage.size.width, aImage.size.width*curRect.height/curRect.width);
     }
     CGImageRef cgimg = CGImageCreateWithImageInRect([aImage CGImage], rect);
     UIImage *image = [UIImage imageWithCGImage:cgimg];

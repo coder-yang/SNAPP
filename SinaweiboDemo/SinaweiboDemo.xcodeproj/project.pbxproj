@@ -80,6 +80,7 @@
 		51CB83AF1B4D28A800962A6F /* WeiboEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB83AE1B4D28A800962A6F /* WeiboEntity.m */; };
 		51CF4ABB1B4E0BB0001E1F70 /* WeiboDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CF4ABA1B4E0BB0001E1F70 /* WeiboDetailVC.m */; };
 		51D2331F1B4FA23E00808E24 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D2331E1B4FA23E00808E24 /* Images.xcassets */; };
+		51D99D1F1B58A19800E45EEB /* 6%@H}DOA)FOSF2{F]AC%X$4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 51D99D1E1B58A19800E45EEB /* 6%@H}DOA)FOSF2{F]AC%X$4.jpg */; };
 		51E665111B54B03500453ACF /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665011B54B03500453ACF /* MJConst.m */; };
 		51E665121B54B03500453ACF /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665041B54B03500453ACF /* MJFoundation.m */; };
 		51E665131B54B03500453ACF /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665061B54B03500453ACF /* MJProperty.m */; };
@@ -269,6 +270,7 @@
 		51CF4AB91B4E0BB0001E1F70 /* WeiboDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboDetailVC.h; sourceTree = "<group>"; };
 		51CF4ABA1B4E0BB0001E1F70 /* WeiboDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboDetailVC.m; sourceTree = "<group>"; };
 		51D2331E1B4FA23E00808E24 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		51D99D1E1B58A19800E45EEB /* 6%@H}DOA)FOSF2{F]AC%X$4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "6%@H}DOA)FOSF2{F]AC%X$4.jpg"; sourceTree = "<group>"; };
 		51E665001B54B03500453ACF /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
 		51E665011B54B03500453ACF /* MJConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJConst.m; sourceTree = "<group>"; };
 		51E665021B54B03500453ACF /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				112C599818ED0DFC00AD2C8A /* SinaweiboDemo */,
 				51CB83781B4CBD4300962A6F /* BussinessManager */,
 				51CB83471B4CBA9700962A6F /* ServiceInterface */,
+				51D99D1D1B58A19800E45EEB /* Screenshots */,
 				51CB83A21B4D1E2100962A6F /* Images */,
 				112C599918ED0DFC00AD2C8A /* Supporting Files */,
 				51CB82D11B4CBA6B00962A6F /* ThirdLibray */,
@@ -734,6 +737,14 @@
 			path = WeiboVC;
 			sourceTree = "<group>";
 		};
+		51D99D1D1B58A19800E45EEB /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				51D99D1E1B58A19800E45EEB /* 6%@H}DOA)FOSF2{F]AC%X$4.jpg */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		51E664FF1B54B03500453ACF /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -893,6 +904,7 @@
 			files = (
 				112C599D18ED0DFC00AD2C8A /* InfoPlist.strings in Resources */,
 				51D2331F1B4FA23E00808E24 /* Images.xcassets in Resources */,
+				51D99D1F1B58A19800E45EEB /* 6%@H}DOA)FOSF2{F]AC%X$4.jpg in Resources */,
 				51CB833B1B4CBA6B00962A6F /* MJRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
