@@ -8,7 +8,9 @@
 
 #import "WeiboDetailVC.h"
 @interface WeiboDetailVC ()
-
+{
+    UITableView *m_tableView;
+}
 @end
 
 @implementation WeiboDetailVC
@@ -38,7 +40,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navTitle = @"微博详情";
+    self.navTitle = @"微博正文";
 }
 
 - (void)didReceiveMemoryWarning

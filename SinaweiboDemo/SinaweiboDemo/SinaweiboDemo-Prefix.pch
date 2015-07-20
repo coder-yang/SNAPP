@@ -18,5 +18,6 @@
     #import "SystemConfig.h"
     #import "SystemSetting.h"
     #import "DBConfig.h"
+    #import "NotificationDefine.h"
 
 #endif

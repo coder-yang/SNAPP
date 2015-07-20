@@ -10,6 +10,7 @@
 #import "BaseService.h"
 #import "NSString+Expand.h"
 #import "MJExtension.h"
+#import "UIImageView+Extend.h"
 
 @implementation WeiboMannager
 
@@ -57,6 +58,24 @@
                 WeiboEntity *reweetedEntity = entity.retweeted_status;
                 reweetedEntity.created_at = [self formatDate:reweetedEntity.created_at];
                 reweetedEntity.source = [self formatDate:reweetedEntity.source];
+                
+                if(entity.pic_urls.count == 1)
+                {
+                    [UIImageView requestSizeFor:[NSURL URLWithString:[entity.pic_urls[0] objectForKey:@"thumbnail_pic"]]  completion:^(NSURL *imgURL, CGSize size) {
+                        
+                            entity.imageWidth = size.width>0?size.width:70;
+                            entity.imageHeight = size.height>0?size.height:70;
+                    }];
+                }
+                
+                if(entity.retweeted_status.pic_urls.count == 1)
+                {
+                    [UIImageView requestSizeFor:[NSURL URLWithString:[entity.retweeted_status.pic_urls[0] objectForKey:@"thumbnail_pic"]]  completion:^(NSURL *imgURL, CGSize size) {
+                        
+                            entity.retweeted_status.imageWidth = size.width>0?size.width:70;
+                            entity.retweeted_status.imageHeight = size.height>0?size.height:70;
+                    }];
+                }
             }
         }
         

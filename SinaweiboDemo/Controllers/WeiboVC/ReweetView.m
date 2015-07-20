@@ -42,8 +42,8 @@
     reweetTextLb.frame = CGRectMake(10, 10, kScreenWith-20, retweetHeight);
     reweetTextLb.text = retweetStr;
     
-    [gridView setSubViews:entity.retweeted_status.pic_urls];
-    gridView.frame = CGRectMake(10, ORIGINY(reweetTextLb)+HEIGHT(reweetTextLb)+10, [GridView getGridViewWidth], [GridView getGridViewHeight:entity.retweeted_status.pic_urls]);
+    [gridView setSubViews:entity.retweeted_status];
+    gridView.frame = CGRectMake(10, ORIGINY(reweetTextLb)+HEIGHT(reweetTextLb)+10, [GridView getGridViewWidth:entity.retweeted_status], [GridView getGridViewHeight:entity.retweeted_status]);
 }
 
 @end

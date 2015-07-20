@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeiboEntity.h"
+
 #define kImgWidth 70
 #define kImgHeight 70
 #define kMarginX 5
@@ -15,10 +17,10 @@
 
 @interface GridView : UIView
 
-+ (float)getGridViewWidth;
++ (float)getGridViewWidth:(WeiboEntity *)entity;
 
-+ (float)getGridViewHeight:(NSArray *)aImgs;
++ (float)getGridViewHeight:(WeiboEntity *)entity;
 
-- (void)setSubViews:(NSArray *)aImgs;
+- (void)setSubViews:(WeiboEntity *)entity;
 
 @end

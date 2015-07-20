@@ -156,7 +156,7 @@
         gridView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 0, 0);
 
         [retweetView layoutWithEntity:entity];
-        retweetView.frame = CGRectMake(0, ORIGINY(textLb)+HEIGHT(textLb)+10, kScreenWith, HEIGHT(retweetView.reweetTextLb)+20+[GridView getGridViewHeight:entity.retweeted_status.pic_urls]);
+        retweetView.frame = CGRectMake(0, ORIGINY(textLb)+HEIGHT(textLb)+10, kScreenWith, HEIGHT(retweetView.reweetTextLb)+20+[GridView getGridViewHeight:entity.retweeted_status]);
         spaceLine.frame = CGRectMake(0, ORIGINY(retweetView)+HEIGHT(retweetView)+9, kScreenWith, 0.5);
     }
     else
@@ -167,8 +167,8 @@
             [self addSubview:gridView];
         }
 
-        [gridView setSubViews:entity.pic_urls];
-        gridView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, [GridView getGridViewWidth], [GridView getGridViewHeight:entity.pic_urls]);
+        [gridView setSubViews:entity];
+        gridView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, [GridView getGridViewWidth:entity], [GridView getGridViewHeight:entity]);
         
         spaceLine.frame = CGRectMake(0, ORIGINY(gridView)+HEIGHT(gridView)+9, kScreenWith, 0.5);
     }

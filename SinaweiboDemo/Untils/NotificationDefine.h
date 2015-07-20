@@ -9,5 +9,6 @@
 #ifndef Urundc_IOS_NotificationDefine_h
 #define Urundc_IOS_NotificationDefine_h
 
+#define DOWN_IMAGE_SUCCESS @"DOWN_IMAGE_SUCCESS"
 
 #endif

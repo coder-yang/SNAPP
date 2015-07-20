@@ -12,6 +12,7 @@
 #import "WeiboDetailVC.h"
 #import "WeiboListCell.h"
 #import "MJRefresh.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface HomeVC ()
 {
@@ -20,6 +21,7 @@
     NSInteger page;
     NSInteger totalPage;
     BOOL isLoadMore;
+    AVAudioPlayer *palyer;
 }
 @end
 
@@ -40,6 +42,9 @@
     if(self = [super init])
     {
         page = 1;
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"msgcome" ofType:@"wav"];
+        palyer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:filePath] error:nil];
     }
     
     return self;
@@ -115,7 +120,7 @@
     NSString *retweetStr = [NSString stringWithFormat:@"@%@ %@", entity.retweeted_status.user.name,entity.retweeted_status.weiboText];
     float retweetHeight = [retweetStr getHeightByWidth:kScreenWith-20 font:RetweetWeiboTextFont]+20;
 
-    return 50+textHeight+kBtnHeight+10+(entity.retweeted_status?retweetHeight+20+([GridView getGridViewHeight:entity.retweeted_status.pic_urls]):[GridView getGridViewHeight:entity.pic_urls]+20);
+    return 50+textHeight+kBtnHeight+10+(entity.retweeted_status?retweetHeight+20+([GridView getGridViewHeight:entity.retweeted_status]):[GridView getGridViewHeight:entity]+20);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -177,13 +182,21 @@
             {
                 page = totalPage;
                 [m_tableView.footer setTitle:@"全部加载完，没有更多了" forState:MJRefreshFooterStateIdle];
-                m_tableView.footer.userInteractionEnabled = NO;
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    m_tableView.footer.userInteractionEnabled = NO;
+                });
             }
             
             [m_tableView.footer endRefreshing];
         }
         else
         {//下拉刷新
+            
+            [palyer prepareToPlay];
+            [palyer play];
+            
+            m_tableView.footer.userInteractionEnabled = YES;
             m_tableView.footer.hidden = NO;
 
             [m_dataArr removeAllObjects];

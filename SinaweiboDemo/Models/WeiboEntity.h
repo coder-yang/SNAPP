@@ -30,4 +30,7 @@
 @property(nonatomic, strong) NSArray *pic_urls;
 @property(nonatomic, strong) NSArray *ad;
 
+@property(nonatomic, assign) NSInteger imageWidth;
+@property(nonatomic, assign) NSInteger imageHeight;
+
 @end

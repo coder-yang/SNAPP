@@ -29,4 +29,7 @@
 @synthesize pic_urls;
 @synthesize ad;
 
+@synthesize imageWidth;
+@synthesize imageHeight;
+
 @end

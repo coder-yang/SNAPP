@@ -13,16 +13,29 @@
 
 @implementation GridView
 
-+ (float)getGridViewWidth
++ (float)getGridViewWidth:(WeiboEntity *)entity
 {
-    return kCount*(kImgWidth + kMarginX) - kMarginX;
+    if(entity.pic_urls.count == 1)
+    {
+        return entity.imageWidth;
+    }
+    else
+    {
+        return kCount*(kImgWidth + kMarginX) - kMarginX;
+    }
 }
 
-+ (float)getGridViewHeight:(NSArray *)aImgs
++ (float)getGridViewHeight:(WeiboEntity *)entity
 {
-    if(aImgs.count>0)
+    if(entity.pic_urls.count == 1)
     {
-        return ((aImgs.count/3)+((aImgs.count%3>0)?1:0))*(kImgHeight + kMarginY) - kMarginY + 10;
+        NSLog(@"%@",entity.weiboText);
+        NSLog(@"%ld",(long)entity.imageHeight);
+        return entity.imageHeight;
+    }
+    if(entity.pic_urls.count > 1)
+    {
+        return ((entity.pic_urls.count/3)+((entity.pic_urls.count%3>0)?1:0))*(kImgHeight + kMarginY) - kMarginY + 10;
     }
     else
     {
@@ -30,45 +43,59 @@
     }
 }
 
-- (void)setSubViews:(NSArray *)aImgs
+- (void)setSubViews:(WeiboEntity *)entity
 {
-    for(int i=0; i<aImgs.count; i++)
+    for(int i=0; i<entity.pic_urls.count; i++)
     {
         NSInteger column = i%kCount; //列
         NSInteger line = i/kCount; //行
         
         NSURL *imgUrl = nil;
-        if([aImgs[i] objectForKey:@"original_pic"])
+        if([entity.pic_urls[i] objectForKey:@"thumbnail_pic"])
         {
-            imgUrl = [NSURL URLWithString:[aImgs[i] objectForKey:@"original_pic"]];
-        }
-        else if([aImgs[i] objectForKey:@"bmiddle_pic"])
-        {
-            imgUrl = [NSURL URLWithString:[aImgs[i] objectForKey:@"bmiddle_pic"]];
-        }
-        else
-        {
-            imgUrl = [NSURL URLWithString:[aImgs[i] objectForKey:@"thumbnail_pic"]];
+            imgUrl = [NSURL URLWithString:[entity.pic_urls[i] objectForKey:@"thumbnail_pic"]];
         }
         UIImageView *imgView = [[UIImageView alloc]init];
         imgView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
-        imgView.frame = CGRectMake(column * (kImgWidth + kMarginX), line * (kMarginY + kImgHeight), kImgWidth, kImgHeight);
-        [imgView sd_setImageWithURL:imgUrl placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            if(error)
-            {
-                DLog(@"%@",error);
-            }
-            else
-            {
-                if(image)
+        
+        if(entity.pic_urls.count == 1)
+        {
+            imgView.frame = CGRectMake(column * (kImgWidth + kMarginX), line * (kMarginY + kImgHeight), entity.imageWidth, entity.imageHeight);
+            [imgView sd_setImageWithURL:imgUrl placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                if(error)
                 {
-                    imgView.image = [imgView cutImageFromImage:image cutFrame:CGSizeMake(kImgWidth, kImgHeight)];
+                    DLog(@"%@",error);
                 }
-            }
-        }];
+                else
+                {
+                    if(image)
+                    {
+                        imgView.image = image;
+                    }
+                }
+            }];
+        }
+        else
+        {
+            imgView.frame = CGRectMake(column * (kImgWidth + kMarginX), line * (kMarginY + kImgHeight), kImgWidth, kImgHeight);
+            [imgView sd_setImageWithURL:imgUrl placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                if(error)
+                {
+                    DLog(@"%@",error);
+                }
+                else
+                {
+                    if(image)
+                    {
+                        imgView.image = [imgView cutImageFromImage:image cutFrame:CGSizeMake(kImgWidth, kImgHeight)];
+                    }
+                }
+            }];
+        }
+
         [self addSubview:imgView];
     }
-    self.frame = CGRectMake(0, 0, [GridView getGridViewWidth], [GridView getGridViewHeight:aImgs]);
+    self.frame = CGRectMake(0, 0, [GridView getGridViewWidth:entity], [GridView getGridViewHeight:entity]);
 }
 
 @end
