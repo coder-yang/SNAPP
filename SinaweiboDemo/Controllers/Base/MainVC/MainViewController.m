@@ -57,7 +57,6 @@
                                                         image:[UIImage imageNamed:@"tabbar_message"]
                                                           tag:1];
     messageVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_message_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-
     
     findVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"发现"
                                                      image:[UIImage imageNamed:@"tabbar_find"]

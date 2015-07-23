@@ -15,11 +15,6 @@
 
 @implementation WeiboDetailVC
 
-- (BOOL)isExistTabBar
-{
-    return NO;
-}
-
 - (UIView *)mainContentView
 {
     UIView *mainView = [[UIView alloc]initWithFrame:self.mainContentViewFrame];

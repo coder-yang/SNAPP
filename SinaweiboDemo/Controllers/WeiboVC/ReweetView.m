@@ -31,6 +31,7 @@
         
         gridView = [[GridView alloc]init];
         [self addSubview:gridView];
+        
     }
     return self;
 }

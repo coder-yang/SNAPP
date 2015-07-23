@@ -9,5 +9,9 @@
 #ifndef UrunNews_EnumConfig_h
 #define UrunNews_EnumConfig_h
 
+typedef NS_ENUM(NSUInteger, SNImageMode) {
+    SNImageModeSmall, //小图模式
+    SNImageModeMiddle, //中图模式
+};
 
 #endif

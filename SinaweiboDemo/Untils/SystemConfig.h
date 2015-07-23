@@ -15,10 +15,11 @@
 #define kExpireTime @"expireTime"
 #define kUid @"uid"
 
-#define NONetworkPrompt @"无网络连接，请设置网络"
-#define TimeOutPrompt @"网络不给力，稍后再试"
+#define NONetworkPrompt @"无网络连接，请检查你的网络"
+#define kTimeOutPrompt @"网络不给力，稍后再试"
 #define kLoadFail @"加载失败，点击重试"
 #define kNoComment @"快抢沙发！"
+#define kDataError @"数据解析失败"
 #define KDefaultImageName @"icon_default_image"
 #define kWeiboName @"微博"
 #define kImgsCache @"ImgsCache"
@@ -30,7 +31,6 @@
 #define ViewBackgroundColor 0xf2f2f2
 
 #define kGetCurAppVersion [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] //获取应用release版本号
-
 
 #define SystemFont_10 [UIFont systemFontOfSize:10]
 #define SystemFont_12 [UIFont systemFontOfSize:12]

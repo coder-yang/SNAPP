@@ -28,8 +28,11 @@
 @synthesize visible;
 @synthesize pic_urls;
 @synthesize ad;
-
-@synthesize imageWidth;
-@synthesize imageHeight;
+@synthesize thumbnail_pic_w;
+@synthesize thumbnail_pic_h;
+@synthesize bmiddle_pic_w;
+@synthesize bmiddle_pic_h;
+@synthesize original_pic_w;
+@synthesize original_pic_h;
 
 @end

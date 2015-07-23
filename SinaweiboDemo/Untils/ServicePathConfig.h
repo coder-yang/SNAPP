@@ -12,11 +12,27 @@ typedef enum
     kRequestFriendTimeLineTag,
 }OperationTag;
 
+/**
+ * 错误码(error)                 错误编号(error_code)      错误描述(error_description)
+ * redirect_uri_mismatch        21322                   重定向地址不匹配
+ * invalid_request              21323                   请求不合法
+ * invalid_client               21324                   client_id或client_secret参数无效
+ * invalid_grant                21325                   提供的Access Grant是无效的、过期的或已撤销的
+ * unauthorized_client          21326                   客户端没有权限
+ * expired_token                21327                   token过期
+ * unsupported_grant_type       21328                   不支持的 GrantType
+ * unsupported_response_type 	21329                   不支持的 ResponseType
+ * access_denied                21330                   用户或授权服务器拒绝授予数据访问权限
+ * temporarily_unavailable      21331                   服务暂时无法访问
+ * appkey permission denied 	21337                   应用权限不足
+ */
+
+
 //生产环境
 #define kServiceRoot @"https://api.weibo.com/2/" //微博服务器
 
 /**
- *  获取当前登录用户及其所关注用户的最新微博的ID
+ * 获取当前登录用户及其所关注用户的最新微博的ID
  * HTTP请求方式 GET
  * param
  * 参数              必选    类型及范围    说明

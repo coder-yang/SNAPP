@@ -76,4 +76,14 @@
     return [resultString longLongValue];
 }
 
++ (float)getNewHeightFromSize:(CGSize)size newWidth:(float)newWidth
+{
+    return newWidth*size.height/size.width;
+}
+
++ (float)getNewWidthFromSize:(CGSize)size newHeight:(float)newHeight
+{
+    return newHeight*size.width/size.height;
+}
+
 @end

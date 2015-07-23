@@ -19,5 +19,6 @@
     #import "SystemSetting.h"
     #import "DBConfig.h"
     #import "NotificationDefine.h"
+    #import "EnumConfig.h"
 
 #endif

@@ -20,6 +20,12 @@
 {
     NSString *url = [NSString stringWithFormat:@"%@%@",kServiceRoot,kRequestFriendTimeLine];
     
+    if(![SystemSetting hasNetWork])
+    {
+        fail(NONetworkPrompt);
+        return;
+    }
+    
     [[BaseService sharedBaseService] getRequestDataFromServiceWithUrl:url params:params operationId:kRequestFriendTimeLineTag success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSMutableArray *responseArr = [responseObject objectForKey:@"statuses"];
@@ -61,10 +67,33 @@
                 
                 if(entity.pic_urls.count == 1)
                 {
-                    [UIImageView requestSizeFor:[NSURL URLWithString:[entity.pic_urls[0] objectForKey:@"thumbnail_pic"]]  completion:^(NSURL *imgURL, CGSize size) {
+                    [UIImageView requestSizeFor:[NSURL URLWithString:[entity.pic_urls[0] objectForKey:@"thumbnail_pic"]] completion:^(NSURL *imgURL, CGSize size) {
                         
-                            entity.imageWidth = size.width>0?size.width:70;
-                            entity.imageHeight = size.height>0?size.height:70;
+                        if(size.height <= 140)
+                        {
+                            entity.thumbnail_pic_w = (size.width > kScreenWith/2)?kScreenWith/2:size.width;
+                            entity.thumbnail_pic_h = [SystemSetting getNewHeightFromSize:size newWidth:entity.thumbnail_pic_w];
+                        }
+                        else
+                        {
+                            entity.thumbnail_pic_w = (size.width > kScreenWith/2)?kScreenWith/2:size.width;
+                            entity.thumbnail_pic_h = 140;
+                        }
+                        
+                    }];
+                    
+                    [UIImageView requestSizeFor:[NSURL URLWithString:entity.bmiddle_pic] completion:^(NSURL *imgURL, CGSize size) {
+                        
+                        entity.bmiddle_pic_w = (size.width > kScreenWith-20)?kScreenWith-20:size.width;
+                        entity.bmiddle_pic_h = [SystemSetting getNewHeightFromSize:size newWidth:kScreenWith-20];
+                            
+                    }];
+                    
+                    [UIImageView requestSizeFor:[NSURL URLWithString:entity.original_pic] completion:^(NSURL *imgURL, CGSize size) {
+                        
+                        entity.original_pic_w = (size.width > kScreenWith)?kScreenWith:size.width;
+                        entity.original_pic_h = [SystemSetting getNewHeightFromSize:size newWidth:kScreenWith];
+                            
                     }];
                 }
                 
@@ -72,8 +101,27 @@
                 {
                     [UIImageView requestSizeFor:[NSURL URLWithString:[entity.retweeted_status.pic_urls[0] objectForKey:@"thumbnail_pic"]]  completion:^(NSURL *imgURL, CGSize size) {
                         
-                            entity.retweeted_status.imageWidth = size.width>0?size.width:70;
-                            entity.retweeted_status.imageHeight = size.height>0?size.height:70;
+                        if(size.height <= 140)
+                        {
+                            entity.retweeted_status.thumbnail_pic_w = (size.width > kScreenWith/2)?kScreenWith/2:size.width;
+                            entity.retweeted_status.thumbnail_pic_h = [SystemSetting getNewHeightFromSize:size newWidth:entity.retweeted_status.thumbnail_pic_w];
+                        }
+                        else
+                        {
+                            entity.retweeted_status.thumbnail_pic_w = [SystemSetting getNewWidthFromSize:size newHeight:140];
+                            entity.retweeted_status.thumbnail_pic_h = 140;
+                        }
+                    }];
+                    
+                    [UIImageView requestSizeFor:[NSURL URLWithString:entity.retweeted_status.bmiddle_pic] completion:^(NSURL *imgURL, CGSize size) {
+                        
+                        entity.retweeted_status.bmiddle_pic_w = (size.width > kScreenWith-20)?kScreenWith-20:size.width;
+                        entity.retweeted_status.bmiddle_pic_h = [SystemSetting getNewHeightFromSize:size newWidth:kScreenWith-20];
+                    }];
+                    
+                    [UIImageView requestSizeFor:[NSURL URLWithString:entity.retweeted_status.original_pic] completion:^(NSURL *imgURL, CGSize size) {
+                        entity.retweeted_status.original_pic_w = (size.width > kScreenWith)?kScreenWith:size.width;
+                        entity.retweeted_status.original_pic_h = [SystemSetting getNewHeightFromSize:size newWidth:kScreenWith];
                     }];
                 }
             }
@@ -83,6 +131,8 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
+        NSString *errorMsg = nil;
+        
         if(operation.error.code == NSURLErrorCancelled)
         {//如果请求是手动取消的，直接返回，不处理
             return ;
@@ -90,11 +140,14 @@
         
         if(operation.error.code == NSURLErrorTimedOut)
         {//请求超时处理
-            
+            errorMsg = kTimeOutPrompt;
+        }
+        else
+        {
+            errorMsg = kLoadFail;
         }
         
-        fail(kLoadFail);
-        
+        fail(errorMsg);
     }];
 }
 

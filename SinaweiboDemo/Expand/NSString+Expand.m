@@ -246,7 +246,7 @@ const Byte iv[] = {1,2,3,4,5,6,7,8};
 - (NSDate *)dateValueWithFormatString:(NSString *)formatString
 {
     NSDateFormatter *strToDateFormatter = [[NSDateFormatter alloc] init];
-    [strToDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]]; //适应中文环境，如果不写中文环境下转出来为nil
+    [strToDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]]; //适应中文环境，如果不写系统中文语言环境下转出来为nil
     
     NSDate *date = nil;
     @synchronized(strToDateFormatter)

@@ -118,9 +118,9 @@
     
     float textHeight = [entity.weiboText getHeightByWidth:kScreenWith-20 font:WeiboTextFont];
     NSString *retweetStr = [NSString stringWithFormat:@"@%@ %@", entity.retweeted_status.user.name,entity.retweeted_status.weiboText];
-    float retweetHeight = [retweetStr getHeightByWidth:kScreenWith-20 font:RetweetWeiboTextFont]+20;
+    float retweetHeight = [retweetStr getHeightByWidth:kScreenWith-20 font:RetweetWeiboTextFont]+10;
 
-    return 50+textHeight+kBtnHeight+10+(entity.retweeted_status?retweetHeight+20+([GridView getGridViewHeight:entity.retweeted_status]):[GridView getGridViewHeight:entity]+20);
+    return 50+textHeight+kBtnHeight+10+(entity.retweeted_status?retweetHeight+20+([GridView getGridViewHeight:entity.retweeted_status]):[GridView getGridViewHeight:entity]+10);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -183,7 +183,7 @@
                 page = totalPage;
                 [m_tableView.footer setTitle:@"全部加载完，没有更多了" forState:MJRefreshFooterStateIdle];
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5), dispatch_get_main_queue(), ^{
                     m_tableView.footer.userInteractionEnabled = NO;
                 });
             }
@@ -192,7 +192,6 @@
         }
         else
         {//下拉刷新
-            
             [palyer prepareToPlay];
             [palyer play];
             
@@ -211,13 +210,16 @@
         if(isLoadMore)
         {
             page--; //网络请求失败，执行减操作，上拉的时候加了1，需要减1，保持当前失败的页码
-            [m_tableView.footer endRefreshing];
             [m_tableView.footer setTitle:@"加载失败，点击重试" forState:MJRefreshFooterStateIdle];
         }
         else
         {
-            [m_tableView.header endRefreshing];
+            [self hudShowTextOnly:errorStr delay:1.5 view:self.navigationController.view];
         }
+        
+        [m_tableView.footer endRefreshing];
+        [m_tableView.header endRefreshing];
+        
     }];
 }
 

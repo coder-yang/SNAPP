@@ -17,9 +17,11 @@ static char *kSizeRequestCompletionKey = "NSURL.sizeRequestCompletion";
 typedef uint32_t dword;
 
 @interface NSURL (RemoteSize)
+
 @property (nonatomic, strong) NSMutableData* sizeRequestData;
 @property (nonatomic, strong) NSString* sizeRequestType;
 @property (nonatomic, copy) UIImageSizeRequestCompleted sizeRequestCompletion;
+
 @end
 
 @implementation NSURL (RemoteSize)
@@ -242,7 +244,7 @@ typedef uint32_t dword;
 @implementation UIImageView (Extend)
 
 + (void) requestSizeFor: (NSURL*) imgURL completion: (UIImageSizeRequestCompleted) completion {
-    
+        
     if( [imgURL isFileURL] ) {
         //Load from file stream
     }

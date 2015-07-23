@@ -21,4 +21,8 @@
 
 + (BOOL)isVaildToken;
 
++ (float)getNewHeightFromSize:(CGSize)size newWidth:(float)newWidth;
+
++ (float)getNewWidthFromSize:(CGSize)size newHeight:(float)newHeight;
+
 @end

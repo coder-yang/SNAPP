@@ -157,7 +157,7 @@
 
         [retweetView layoutWithEntity:entity];
         retweetView.frame = CGRectMake(0, ORIGINY(textLb)+HEIGHT(textLb)+10, kScreenWith, HEIGHT(retweetView.reweetTextLb)+20+[GridView getGridViewHeight:entity.retweeted_status]);
-        spaceLine.frame = CGRectMake(0, ORIGINY(retweetView)+HEIGHT(retweetView)+9, kScreenWith, 0.5);
+        spaceLine.frame = CGRectMake(0, ORIGINY(retweetView)+HEIGHT(retweetView)+0.5, kScreenWith, 0.5);
     }
     else
     {
@@ -170,7 +170,7 @@
         [gridView setSubViews:entity];
         gridView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, [GridView getGridViewWidth:entity], [GridView getGridViewHeight:entity]);
         
-        spaceLine.frame = CGRectMake(0, ORIGINY(gridView)+HEIGHT(gridView)+9, kScreenWith, 0.5);
+        spaceLine.frame = CGRectMake(0, ORIGINY(gridView)+HEIGHT(gridView)+0.5, kScreenWith, 0.5);
     }
     
     reportsBtn.frame = CGRectMake(0, ORIGINY(spaceLine)+HEIGHT(spaceLine), kBtnWidth, kBtnHeight);
