@@ -22,6 +22,8 @@
     {
         self.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
         
+        m_isDetail = NO;
+        
         reweetTextLb = [[UILabel alloc]init];
         reweetTextLb.textColor = [UIColor grayColor];
         reweetTextLb.font = RetweetWeiboTextFont;
@@ -36,6 +38,12 @@
     return self;
 }
 
+- (void)layoutWithEntity:(WeiboEntity *)entity isDetail:(BOOL)isDetail
+{
+    m_isDetail = isDetail;
+    [self layoutWithEntity:entity];
+}
+
 -(void)layoutWithEntity:(WeiboEntity *)entity
 {
     NSString *retweetStr = [NSString stringWithFormat:@"@%@ %@", entity.retweeted_status.user.name,entity.retweeted_status.weiboText];
@@ -43,8 +51,16 @@
     reweetTextLb.frame = CGRectMake(10, 10, kScreenWith-20, retweetHeight);
     reweetTextLb.text = retweetStr;
     
-    [gridView setSubViews:entity.retweeted_status];
-    gridView.frame = CGRectMake(10, ORIGINY(reweetTextLb)+HEIGHT(reweetTextLb)+10, [GridView getGridViewWidth:entity.retweeted_status], [GridView getGridViewHeight:entity.retweeted_status]);
+    if(m_isDetail)
+    {
+        [gridView setDetailSubViews:entity.retweeted_status];
+    }
+    else
+    {
+        [gridView setSubViews:entity.retweeted_status];
+    }
+    
+    gridView.frame = CGRectMake(10, reweetTextLb.y+reweetTextLb.height+10, [GridView getGridViewWidth:entity.retweeted_status], [GridView getGridViewHeight:entity.retweeted_status]);
 }
 
 @end

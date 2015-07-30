@@ -11,6 +11,7 @@
 @implementation BussinessManager
 
 @synthesize weiboManager;
+@synthesize commentManager;
 
 + (instancetype)sharedBussinessManager
 {
@@ -28,6 +29,7 @@
     if(self = [super init])
     {
         weiboManager = [[WeiboMannager alloc]init];
+        commentManager = [[CommentManager alloc]init];
     }
     return self;
 }

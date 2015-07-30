@@ -29,7 +29,6 @@
 @property(nonatomic, strong) NSString *visible;
 @property(nonatomic, strong) NSArray *pic_urls;
 @property(nonatomic, strong) NSArray *ad;
-
 @property(nonatomic, assign) NSInteger thumbnail_pic_w;
 @property(nonatomic, assign) NSInteger thumbnail_pic_h;
 @property(nonatomic, assign) NSInteger bmiddle_pic_w;

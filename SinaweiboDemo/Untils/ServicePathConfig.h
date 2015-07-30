@@ -10,6 +10,7 @@
 typedef enum
 {
     kRequestFriendTimeLineTag,
+    kRequestCommentsListTag,
 }OperationTag;
 
 /**
@@ -46,4 +47,18 @@ typedef enum
  * feature          false 	int         过滤类型ID，0：全部、1：原创、2：图片、3：视频、4：音乐，默认为0。
  */
 #define kRequestFriendTimeLine @"statuses/friends_timeline.json"
+
+/**
+ *  根据微博ID返回某条微博的评论列表
+ *  必选                 类型     范围        说明
+ *  source              false 	string      采用OAuth授权方式不需要此参数，其他授权方式为必填参数，数值为应用的AppKey。
+ *  access_token        false 	string      采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
+ *  id                  true    int64       需要查询的微博ID。
+ *  since_id            false 	int64       若指定此参数，则返回ID比since_id大的评论（即比since_id时间晚的评论），默认为0。
+ *  max_id              false 	int64       若指定此参数，则返回ID小于或等于max_id的评论，默认为0。
+ *  count               false 	int         单页返回的记录条数，默认为50。
+ *  page                false 	int         返回结果的页码，默认为1。
+ *  filter_by_author 	false 	int         作者筛选类型，0：全部、1：我关注的人、2：陌生人，默认为0。
+ */
+#define kRequestCommentsList @"comments/show.json"
 

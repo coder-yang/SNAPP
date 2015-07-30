@@ -7,7 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "WeiboEntity.h"
+#import "BussinessManager.h"
 
-@interface WeiboDetailVC : BaseViewController
+@interface WeiboDetailVC : BaseViewController <UITableViewDataSource, UITableViewDelegate>
+
+- (instancetype)initWithEntity:(WeiboEntity *)entity;
 
 @end

@@ -38,6 +38,7 @@
 @synthesize avatar_large;
 @synthesize avatar_hd;
 @synthesize verified_reason;
+@synthesize star;
 @synthesize follow_me;
 @synthesize online_status;
 @synthesize bi_followers_count;

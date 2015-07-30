@@ -35,10 +35,10 @@
         spaceView.backgroundColor = [UIColor colorWithHex:0xf2f2f2];
         [self addSubview:spaceView];
 
-        userImg = [[UIImageView alloc]initWithFrame:CGRectMake(10, ORIGINY(spaceView)+HEIGHT(spaceView)+10, 30, 30)];
+        userImg = [[UIImageView alloc]initWithFrame:CGRectMake(10, spaceView.y+spaceView.height+10, 30, 30)];
         [self addSubview:userImg];
         
-        userNameLb = [[UILabel alloc]initWithFrame:CGRectMake(ORIGINX(userImg)+WIDTH(userImg)+10, ORIGINY(spaceView)+HEIGHT(spaceView)+10, kScreenWith-100, 15)];
+        userNameLb = [[UILabel alloc]initWithFrame:CGRectMake(userImg.x+userImg.width+10, spaceView.y+spaceView.height+10, kScreenWith-100, 15)];
         userNameLb.backgroundColor = [UIColor clearColor];
         userNameLb.font = SystemFont_14;
         userNameLb.textColor = [UIColor blackColor];
@@ -117,9 +117,9 @@
     float fromLabelWidth = [fromLabel.text getWidthByHeight:10 font:SystemFont_10];
     float sourceWidth = [entity.source getWidthByHeight:10 font:SystemFont_10];
 
-    createTimeLb.frame = CGRectMake(ORIGINX(userNameLb), ORIGINY(userNameLb)+HEIGHT(userNameLb)+5, createTimeWidth, 10);
-    fromLabel.frame = CGRectMake(ORIGINX(createTimeLb)+WIDTH(createTimeLb)+5, ORIGINY(createTimeLb), fromLabelWidth, 10);
-    sourceLb.frame = CGRectMake(ORIGINX(fromLabel)+WIDTH(fromLabel)+5, ORIGINY(fromLabel), sourceWidth, 10);
+    createTimeLb.frame = CGRectMake(userNameLb.x, userNameLb.y+userNameLb.height+5, createTimeWidth, 10);
+    fromLabel.frame = CGRectMake(createTimeLb.x+createTimeLb.width+5, createTimeLb.y, fromLabelWidth, 10);
+    sourceLb.frame = CGRectMake(fromLabel.x+fromLabel.width+5, fromLabel.y, sourceWidth, 10);
 
     userNameLb.text = entity.user.screen_name;
     createTimeLb.text = entity.created_at;
@@ -141,7 +141,7 @@
     }
     
     float textHeight = [entity.weiboText getHeightByWidth:kScreenWith-20 font:WeiboTextFont];
-    textLb.frame = CGRectMake(10, ORIGINY(userImg)+HEIGHT(userImg)+10, kScreenWith-20, textHeight);
+    textLb.frame = CGRectMake(10, userImg.y+userImg.height+10, kScreenWith-20, textHeight);
     textLb.font = WeiboTextFont;
     textLb.text = entity.weiboText;
     
@@ -153,11 +153,11 @@
             [self addSubview:retweetView];
         }
         
-        gridView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, 0, 0);
+        gridView.frame = CGRectMake(10, textLb.y+textLb.height+10, 0, 0);
 
         [retweetView layoutWithEntity:entity];
-        retweetView.frame = CGRectMake(0, ORIGINY(textLb)+HEIGHT(textLb)+10, kScreenWith, HEIGHT(retweetView.reweetTextLb)+20+[GridView getGridViewHeight:entity.retweeted_status]);
-        spaceLine.frame = CGRectMake(0, ORIGINY(retweetView)+HEIGHT(retweetView)+0.5, kScreenWith, 0.5);
+        retweetView.frame = CGRectMake(0, textLb.y+textLb.height+10, kScreenWith, retweetView.reweetTextLb.height+20+[GridView getGridViewHeight:entity.retweeted_status]);
+        spaceLine.frame = CGRectMake(0, retweetView.y+retweetView.height+0.5, kScreenWith, 0.5);
     }
     else
     {
@@ -168,17 +168,17 @@
         }
 
         [gridView setSubViews:entity];
-        gridView.frame = CGRectMake(10, ORIGINY(textLb)+HEIGHT(textLb)+10, [GridView getGridViewWidth:entity], [GridView getGridViewHeight:entity]);
+        gridView.frame = CGRectMake(10, textLb.y+textLb.height+10, [GridView getGridViewWidth:entity], [GridView getGridViewHeight:entity]);
         
-        spaceLine.frame = CGRectMake(0, ORIGINY(gridView)+HEIGHT(gridView)+0.5, kScreenWith, 0.5);
+        spaceLine.frame = CGRectMake(0, gridView.y+gridView.height+0.5, kScreenWith, 0.5);
     }
     
-    reportsBtn.frame = CGRectMake(0, ORIGINY(spaceLine)+HEIGHT(spaceLine), kBtnWidth, kBtnHeight);
-    hLine1.frame = CGRectMake(ORIGINX(reportsBtn)+WIDTH(reportsBtn), ORIGINY(reportsBtn)+5, 0.5, 20);
-    commentBtn.frame = CGRectMake(ORIGINX(reportsBtn)+WIDTH(reportsBtn)+0.5, ORIGINY(reportsBtn), kBtnWidth, kBtnHeight);
-    hLine2.frame = CGRectMake(ORIGINX(commentBtn)+WIDTH(commentBtn), ORIGINY(commentBtn)+5, 0.5, 20);
-    praiseBtn.frame = CGRectMake(ORIGINX(commentBtn)+WIDTH(commentBtn)+0.5, ORIGINY(commentBtn), kBtnWidth, kBtnHeight);
-    bottomLine.frame = CGRectMake(0, ORIGINY(praiseBtn)+HEIGHT(praiseBtn)-0.5, kScreenWith, 0.5);
+    reportsBtn.frame = CGRectMake(0, spaceLine.y+spaceLine.height, kBtnWidth, kBtnHeight);
+    hLine1.frame = CGRectMake(reportsBtn.x+reportsBtn.width, reportsBtn.y+5, 0.5, 20);
+    commentBtn.frame = CGRectMake(reportsBtn.x+reportsBtn.width+0.5, reportsBtn.y, kBtnWidth, kBtnHeight);
+    hLine2.frame = CGRectMake(commentBtn.x+commentBtn.width, commentBtn.y+5, 0.5, 20);
+    praiseBtn.frame = CGRectMake(commentBtn.x+commentBtn.width+0.5, commentBtn.y, kBtnWidth, kBtnHeight);
+    bottomLine.frame = CGRectMake(0, praiseBtn.y+praiseBtn.height-0.5, kScreenWith, 0.5);
 }
 
 @end

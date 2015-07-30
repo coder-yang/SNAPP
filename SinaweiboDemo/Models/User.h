@@ -39,6 +39,7 @@
 @property(nonatomic, strong) NSString *avatar_large;
 @property(nonatomic, strong) NSString *avatar_hd;
 @property(nonatomic, strong) NSString *verified_reason;
+@property(nonatomic, assign) NSInteger star;
 @property(nonatomic, assign) BOOL follow_me;
 @property(nonatomic, assign) NSInteger online_status;
 @property(nonatomic, assign) NSInteger bi_followers_count;

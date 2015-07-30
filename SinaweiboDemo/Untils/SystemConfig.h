@@ -69,10 +69,10 @@
 #define kScreenWith [UIScreen mainScreen].bounds.size.width
 #define kScreenheight [UIScreen mainScreen].bounds.size.height
 
-#define WIDTH(obj)  obj.frame.size.width
-#define HEIGHT(obj)  obj.frame.size.height
-#define ORIGINX(obj)  obj.frame.origin.x
-#define ORIGINY(obj)  obj.frame.origin.y
+//#define WIDTH(obj)  obj.frame.size.width
+//#define HEIGHT(obj)  obj.frame.size.height
+//#define ORIGINX(obj)  obj.frame.origin.x
+//#define ORIGINY(obj)  obj.frame.origin.y
 
 #define RGBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define RGBColorAlpha(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]

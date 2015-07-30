@@ -11,7 +11,9 @@
 #import "GridView.h"
 
 @interface ReweetView : UIView
-
+{
+    BOOL m_isDetail;
+}
 @property(nonatomic, strong) UILabel *reweetTextLb;
 
 @property(nonatomic, strong) GridView *gridView;
@@ -19,5 +21,7 @@
 - (instancetype)init;
 
 - (void)layoutWithEntity:(WeiboEntity *)entity;
+
+- (void)layoutWithEntity:(WeiboEntity *)entity isDetail:(BOOL)isDetail;
 
 @end

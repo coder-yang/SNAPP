@@ -57,11 +57,11 @@
 {
     if(entity.pic_urls.count == 1)
     {
-        return entity.bmiddle_pic_h + 10;
+        return entity.bmiddle_pic_h + 11;
     }
     if(entity.pic_urls.count > 1)
     {
-        return ((entity.pic_urls.count/3)+((entity.pic_urls.count%3>0)?1:0))*(kMiddleImgWidth + kMarginY) - kMarginY + 10;
+        return ((entity.pic_urls.count/3)+((entity.pic_urls.count%3>0)?1:0))*(kMiddleImgWidth + kMarginY) - kMarginY + 11;
     }
     else
     {
@@ -87,9 +87,32 @@
         }
         
         NSURL *imgUrl = nil;
-        if([entity.pic_urls[i] objectForKey:@"thumbnail_pic"])
+        if(entity.pic_urls.count > 1)
         {
-            imgUrl = [NSURL URLWithString:[entity.pic_urls[i] objectForKey:@"thumbnail_pic"]];
+            
+            if([entity.pic_urls[i] objectForKey:@"original_pic"])
+            {
+                imgUrl = [NSURL URLWithString:[entity.pic_urls[i] objectForKey:@"original_pic"]];
+            }
+            else if([entity.pic_urls[i] objectForKey:@"bmiddle_pic"])
+            {
+                imgUrl = [NSURL URLWithString:[entity.pic_urls[i] objectForKey:@"bmiddle_pic"]];
+            }
+            else if([entity.pic_urls[i] objectForKey:@"thumbnail_pic"])
+            {
+                imgUrl = [NSURL URLWithString:[entity.pic_urls[i] objectForKey:@"thumbnail_pic"]];
+            }
+        }
+        else
+        {
+            if(entity.bmiddle_pic)
+            {
+                imgUrl = [NSURL URLWithString:entity.bmiddle_pic];
+            }
+            else if(entity.thumbnail_pic)
+            {
+                imgUrl = [NSURL URLWithString:entity.thumbnail_pic];
+            }
         }
         UIImageView *imgView = [[UIImageView alloc]init];
         imgView.backgroundColor = [UIColor colorWithHex:0xd4d2d2];
@@ -152,6 +175,7 @@
         }
         
         NSURL *imgUrl = nil;
+
         if([entity.pic_urls[i] objectForKey:@"bmiddle_pic"])
         {
             imgUrl = [NSURL URLWithString:[entity.pic_urls[i] objectForKey:@"bmiddle_pic"]];
@@ -165,6 +189,8 @@
         
         if(entity.pic_urls.count == 1)
         {
+            imgUrl = [NSURL URLWithString:entity.bmiddle_pic];
+            
             imgView.frame = CGRectMake(column * (kMiddleImgWidth + kMarginX), line * (kMarginY + kMiddleImgHeight), entity.bmiddle_pic_w, entity.bmiddle_pic_h);
             [imgView sd_setImageWithURL:imgUrl placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 if(error)
@@ -182,7 +208,7 @@
         }
         else
         {
-            imgView.frame = CGRectMake(column * (kImgWidth + kMarginX), line * (kMarginY + kMiddleImgHeight), kMiddleImgWidth, kMiddleImgHeight);
+            imgView.frame = CGRectMake(column * (kMiddleImgWidth + kMarginX), line * (kMarginY + kMiddleImgHeight), kMiddleImgWidth, kMiddleImgHeight);
             [imgView sd_setImageWithURL:imgUrl placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 if(error)
                 {

@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "WeiboMannager.h"
+#import "CommentManager.h"
 
 @interface BussinessManager : NSObject
 
 @property (nonatomic, strong) WeiboMannager *weiboManager;
+@property (nonatomic, strong) CommentManager *commentManager;
 
 + (instancetype)sharedBussinessManager;
 

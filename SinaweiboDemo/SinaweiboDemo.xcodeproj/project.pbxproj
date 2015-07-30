@@ -78,8 +78,18 @@
 		51CB839E1B4CF55000962A6F /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB839D1B4CF55000962A6F /* MineVC.m */; };
 		51CB83A11B4D078000962A6F /* WeiboMannager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB83A01B4D078000962A6F /* WeiboMannager.m */; };
 		51CB83AF1B4D28A800962A6F /* WeiboEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB83AE1B4D28A800962A6F /* WeiboEntity.m */; };
+		51CF36C01B69C1E4009C788B /* ReweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CF36BB1B69C1E4009C788B /* ReweetView.m */; };
+		51CF36C11B69C1E4009C788B /* WeiboListBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CF36BD1B69C1E4009C788B /* WeiboListBtn.m */; };
+		51CF36C21B69C1E4009C788B /* WeiboListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CF36BF1B69C1E4009C788B /* WeiboListCell.m */; };
+		51CF36C51B69C207009C788B /* WeiboDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CF36C41B69C207009C788B /* WeiboDetailCell.m */; };
+		51CF36C81B69DD4C009C788B /* ReweetViewBottomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CF36C71B69DD4C009C788B /* ReweetViewBottomBtn.m */; };
 		51CF4ABB1B4E0BB0001E1F70 /* WeiboDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CF4ABA1B4E0BB0001E1F70 /* WeiboDetailVC.m */; };
 		51D2331F1B4FA23E00808E24 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D2331E1B4FA23E00808E24 /* Images.xcassets */; };
+		51D805BA1B69FF4C003D61B7 /* CommentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D805B91B69FF4C003D61B7 /* CommentManager.m */; };
+		51D805BD1B6A0340003D61B7 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D805BC1B6A0340003D61B7 /* Comment.m */; };
+		51D805C01B6A168E003D61B7 /* CommentHeadBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D805BF1B6A168E003D61B7 /* CommentHeadBtn.m */; };
+		51D805C31B6A20A2003D61B7 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D805C21B6A20A2003D61B7 /* CommentCell.m */; };
+		51D805C61B6A2D06003D61B7 /* CommentPraiseBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D805C51B6A2D06003D61B7 /* CommentPraiseBtn.m */; };
 		51D99D231B58A53400E45EEB /* screenshots.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D99D221B58A53400E45EEB /* screenshots.png */; };
 		51D9FB6B1B5CA3DF001C0501 /* msgcome.wav in Resources */ = {isa = PBXBuildFile; fileRef = 51D9FB6A1B5CA3DF001C0501 /* msgcome.wav */; };
 		51E665111B54B03500453ACF /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665011B54B03500453ACF /* MJConst.m */; };
@@ -91,8 +101,6 @@
 		51E665171B54B03500453ACF /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E6650E1B54B03500453ACF /* NSObject+MJProperty.m */; };
 		51E665181B54B03500453ACF /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665101B54B03500453ACF /* NSString+MJExtension.m */; };
 		51E6651B1B54BBD100453ACF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E6651A1B54BBD100453ACF /* User.m */; };
-		51E6651E1B54F66B00453ACF /* WeiboListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E6651D1B54F66B00453ACF /* WeiboListCell.m */; };
-		51E665211B54FAC900453ACF /* WeiboListBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665201B54FAC900453ACF /* WeiboListBtn.m */; };
 		51E665441B54FB1800453ACF /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665241B54FB1800453ACF /* MKAnnotationView+WebCache.m */; };
 		51E665451B54FB1800453ACF /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665261B54FB1800453ACF /* NSData+ImageContentType.m */; };
 		51E665461B54FB1800453ACF /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665281B54FB1800453ACF /* SDImageCache.m */; };
@@ -111,7 +119,6 @@
 		51E665531B54FB1800453ACF /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665431B54FB1800453ACF /* UIView+WebCacheOperation.m */; };
 		51E665711B55144100453ACF /* SNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665701B55144000453ACF /* SNNavigationController.m */; };
 		51E665751B5514BE00453ACF /* GridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E665741B5514BE00453ACF /* GridView.m */; };
-		51ED0DCD1B5663BA00827AE9 /* ReweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ED0DCC1B5663BA00827AE9 /* ReweetView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,9 +275,29 @@
 		51CB83AD1B4D28A800962A6F /* WeiboEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboEntity.h; sourceTree = "<group>"; };
 		51CB83AE1B4D28A800962A6F /* WeiboEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboEntity.m; sourceTree = "<group>"; };
 		51CBAE191B57501500667E32 /* DBConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBConfig.h; sourceTree = "<group>"; };
+		51CF36BA1B69C1E4009C788B /* ReweetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReweetView.h; sourceTree = "<group>"; };
+		51CF36BB1B69C1E4009C788B /* ReweetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReweetView.m; sourceTree = "<group>"; };
+		51CF36BC1B69C1E4009C788B /* WeiboListBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboListBtn.h; sourceTree = "<group>"; };
+		51CF36BD1B69C1E4009C788B /* WeiboListBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboListBtn.m; sourceTree = "<group>"; };
+		51CF36BE1B69C1E4009C788B /* WeiboListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboListCell.h; sourceTree = "<group>"; };
+		51CF36BF1B69C1E4009C788B /* WeiboListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboListCell.m; sourceTree = "<group>"; };
+		51CF36C31B69C207009C788B /* WeiboDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboDetailCell.h; sourceTree = "<group>"; };
+		51CF36C41B69C207009C788B /* WeiboDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboDetailCell.m; sourceTree = "<group>"; };
+		51CF36C61B69DD4C009C788B /* ReweetViewBottomBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReweetViewBottomBtn.h; sourceTree = "<group>"; };
+		51CF36C71B69DD4C009C788B /* ReweetViewBottomBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReweetViewBottomBtn.m; sourceTree = "<group>"; };
 		51CF4AB91B4E0BB0001E1F70 /* WeiboDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboDetailVC.h; sourceTree = "<group>"; };
 		51CF4ABA1B4E0BB0001E1F70 /* WeiboDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboDetailVC.m; sourceTree = "<group>"; };
 		51D2331E1B4FA23E00808E24 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		51D805B81B69FF4C003D61B7 /* CommentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentManager.h; sourceTree = "<group>"; };
+		51D805B91B69FF4C003D61B7 /* CommentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentManager.m; sourceTree = "<group>"; };
+		51D805BB1B6A0340003D61B7 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		51D805BC1B6A0340003D61B7 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		51D805BE1B6A168D003D61B7 /* CommentHeadBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentHeadBtn.h; sourceTree = "<group>"; };
+		51D805BF1B6A168E003D61B7 /* CommentHeadBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentHeadBtn.m; sourceTree = "<group>"; };
+		51D805C11B6A20A2003D61B7 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		51D805C21B6A20A2003D61B7 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		51D805C41B6A2D06003D61B7 /* CommentPraiseBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentPraiseBtn.h; sourceTree = "<group>"; };
+		51D805C51B6A2D06003D61B7 /* CommentPraiseBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentPraiseBtn.m; sourceTree = "<group>"; };
 		51D99D221B58A53400E45EEB /* screenshots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshots.png; sourceTree = "<group>"; };
 		51D9FB6A1B5CA3DF001C0501 /* msgcome.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = msgcome.wav; sourceTree = "<group>"; };
 		51E665001B54B03500453ACF /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
@@ -292,10 +319,6 @@
 		51E665101B54B03500453ACF /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		51E665191B54BBD100453ACF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		51E6651A1B54BBD100453ACF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		51E6651C1B54F66B00453ACF /* WeiboListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboListCell.h; sourceTree = "<group>"; };
-		51E6651D1B54F66B00453ACF /* WeiboListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboListCell.m; sourceTree = "<group>"; };
-		51E6651F1B54FAC900453ACF /* WeiboListBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboListBtn.h; sourceTree = "<group>"; };
-		51E665201B54FAC900453ACF /* WeiboListBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboListBtn.m; sourceTree = "<group>"; };
 		51E665231B54FB1800453ACF /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		51E665241B54FB1800453ACF /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		51E665251B54FB1800453ACF /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -333,8 +356,6 @@
 		51E665701B55144000453ACF /* SNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNNavigationController.m; sourceTree = "<group>"; };
 		51E665731B5514BE00453ACF /* GridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridView.h; sourceTree = "<group>"; };
 		51E665741B5514BE00453ACF /* GridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridView.m; sourceTree = "<group>"; };
-		51ED0DCB1B5663BA00827AE9 /* ReweetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReweetView.h; sourceTree = "<group>"; };
-		51ED0DCC1B5663BA00827AE9 /* ReweetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReweetView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +471,8 @@
 				51CB83AE1B4D28A800962A6F /* WeiboEntity.m */,
 				51E665191B54BBD100453ACF /* User.h */,
 				51E6651A1B54BBD100453ACF /* User.m */,
+				51D805BB1B6A0340003D61B7 /* Comment.h */,
+				51D805BC1B6A0340003D61B7 /* Comment.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -673,6 +696,8 @@
 				51CB837A1B4CBD4300962A6F /* BussinessManager.m */,
 				51CB839F1B4D078000962A6F /* WeiboMannager.h */,
 				51CB83A01B4D078000962A6F /* WeiboMannager.m */,
+				51D805B81B69FF4C003D61B7 /* CommentManager.h */,
+				51D805B91B69FF4C003D61B7 /* CommentManager.m */,
 			);
 			name = BussinessManager;
 			path = SinaweiboDemo/BussinessManager;
@@ -725,17 +750,35 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		51CF36B91B69C1E4009C788B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51CF36BA1B69C1E4009C788B /* ReweetView.h */,
+				51CF36BB1B69C1E4009C788B /* ReweetView.m */,
+				51CF36BC1B69C1E4009C788B /* WeiboListBtn.h */,
+				51CF36BD1B69C1E4009C788B /* WeiboListBtn.m */,
+				51CF36BE1B69C1E4009C788B /* WeiboListCell.h */,
+				51CF36BF1B69C1E4009C788B /* WeiboListCell.m */,
+				51CF36C31B69C207009C788B /* WeiboDetailCell.h */,
+				51CF36C41B69C207009C788B /* WeiboDetailCell.m */,
+				51CF36C61B69DD4C009C788B /* ReweetViewBottomBtn.h */,
+				51CF36C71B69DD4C009C788B /* ReweetViewBottomBtn.m */,
+				51D805BE1B6A168D003D61B7 /* CommentHeadBtn.h */,
+				51D805BF1B6A168E003D61B7 /* CommentHeadBtn.m */,
+				51D805C11B6A20A2003D61B7 /* CommentCell.h */,
+				51D805C21B6A20A2003D61B7 /* CommentCell.m */,
+				51D805C41B6A2D06003D61B7 /* CommentPraiseBtn.h */,
+				51D805C51B6A2D06003D61B7 /* CommentPraiseBtn.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		51CF4AB81B4E0B9B001E1F70 /* WeiboVC */ = {
 			isa = PBXGroup;
 			children = (
+				51CF36B91B69C1E4009C788B /* View */,
 				51CF4AB91B4E0BB0001E1F70 /* WeiboDetailVC.h */,
 				51CF4ABA1B4E0BB0001E1F70 /* WeiboDetailVC.m */,
-				51E6651C1B54F66B00453ACF /* WeiboListCell.h */,
-				51E6651D1B54F66B00453ACF /* WeiboListCell.m */,
-				51E6651F1B54FAC900453ACF /* WeiboListBtn.h */,
-				51E665201B54FAC900453ACF /* WeiboListBtn.m */,
-				51ED0DCB1B5663BA00827AE9 /* ReweetView.h */,
-				51ED0DCC1B5663BA00827AE9 /* ReweetView.m */,
 			);
 			path = WeiboVC;
 			sourceTree = "<group>";
@@ -940,6 +983,7 @@
 				51CB83441B4CBA6B00962A6F /* UIScrollView+MJExtension.m in Sources */,
 				51CB83231B4CBA6B00962A6F /* AFHTTPRequestOperation.m in Sources */,
 				51CB83871B4CD41700962A6F /* BaseView.m in Sources */,
+				51D805C61B6A2D06003D61B7 /* CommentPraiseBtn.m in Sources */,
 				51CB834C1B4CBA9700962A6F /* BaseService.m in Sources */,
 				51E665131B54B03500453ACF /* MJProperty.m in Sources */,
 				51CB83301B4CBA6B00962A6F /* UIImageView+AFNetworking.m in Sources */,
@@ -954,6 +998,7 @@
 				51CB837B1B4CBD4300962A6F /* BussinessManager.m in Sources */,
 				51CB833C1B4CBA6B00962A6F /* MJRefreshComponent.m in Sources */,
 				51CB83341B4CBA6B00962A6F /* FMDatabase.m in Sources */,
+				51D805BD1B6A0340003D61B7 /* Comment.m in Sources */,
 				51CB83241B4CBA6B00962A6F /* AFHTTPRequestOperationManager.m in Sources */,
 				51E665171B54B03500453ACF /* NSObject+MJProperty.m in Sources */,
 				51CB83671B4CBACE00962A6F /* NSMutableDictionary+Extend.m in Sources */,
@@ -971,27 +1016,28 @@
 				51E665511B54FB1800453ACF /* UIImageView+HighlightedWebCache.m in Sources */,
 				51CB832A1B4CBA6B00962A6F /* AFURLResponseSerialization.m in Sources */,
 				51E665451B54FB1800453ACF /* NSData+ImageContentType.m in Sources */,
-				51E6651E1B54F66B00453ACF /* WeiboListCell.m in Sources */,
 				51CB83281B4CBA6B00962A6F /* AFURLConnectionOperation.m in Sources */,
 				51CB83461B4CBA6B00962A6F /* UIView+MJExtension.m in Sources */,
 				51CB832F1B4CBA6B00962A6F /* UIButton+AFNetworking.m in Sources */,
 				51CB83921B4CF4EC00962A6F /* HomeVC.m in Sources */,
 				51CB833A1B4CBA6B00962A6F /* MBProgressHUD.m in Sources */,
-				51E665211B54FAC900453ACF /* WeiboListBtn.m in Sources */,
 				51CB83431B4CBA6B00962A6F /* MJRefreshLegendHeader.m in Sources */,
 				51E665501B54FB1800453ACF /* UIImage+WebP.m in Sources */,
 				51CB83451B4CBA6B00962A6F /* UIScrollView+MJRefresh.m in Sources */,
 				51CB832D1B4CBA6B00962A6F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				51D805C31B6A20A2003D61B7 /* CommentCell.m in Sources */,
 				51E665161B54B03500453ACF /* NSObject+MJKeyValue.m in Sources */,
-				51ED0DCD1B5663BA00827AE9 /* ReweetView.m in Sources */,
 				51CB838F1B4CD46D00962A6F /* LoginViewController.m in Sources */,
 				51CB836B1B4CBACE00962A6F /* UIView+Expand.m in Sources */,
 				51CB83271B4CBA6B00962A6F /* AFSecurityPolicy.m in Sources */,
 				51E665151B54B03500453ACF /* NSObject+MJCoding.m in Sources */,
 				51E665461B54FB1800453ACF /* SDImageCache.m in Sources */,
 				51CB83321B4CBA6B00962A6F /* UIRefreshControl+AFNetworking.m in Sources */,
+				51D805C01B6A168E003D61B7 /* CommentHeadBtn.m in Sources */,
+				51D805BA1B69FF4C003D61B7 /* CommentManager.m in Sources */,
 				51E6654D1B54FB1800453ACF /* UIButton+WebCache.m in Sources */,
 				51CB839E1B4CF55000962A6F /* MineVC.m in Sources */,
+				51CF36C11B69C1E4009C788B /* WeiboListBtn.m in Sources */,
 				51E6654E1B54FB1800453ACF /* UIImage+GIF.m in Sources */,
 				51CB83331B4CBA6B00962A6F /* UIWebView+AFNetworking.m in Sources */,
 				51CB83251B4CBA6B00962A6F /* AFHTTPSessionManager.m in Sources */,
@@ -1001,9 +1047,11 @@
 				51E665711B55144100453ACF /* SNNavigationController.m in Sources */,
 				51E6654C1B54FB1800453ACF /* SDWebImagePrefetcher.m in Sources */,
 				51E665471B54FB1800453ACF /* SDWebImageCompat.m in Sources */,
+				51CF36C21B69C1E4009C788B /* WeiboListCell.m in Sources */,
 				51CB83401B4CBA6B00962A6F /* MJRefreshGifHeader.m in Sources */,
 				51E665121B54B03500453ACF /* MJFoundation.m in Sources */,
 				51E665531B54FB1800453ACF /* UIView+WebCacheOperation.m in Sources */,
+				51CF36C81B69DD4C009C788B /* ReweetViewBottomBtn.m in Sources */,
 				51E6654F1B54FB1800453ACF /* UIImage+MultiFormat.m in Sources */,
 				51CB833D1B4CBA6B00962A6F /* MJRefreshConst.m in Sources */,
 				51E6654A1B54FB1800453ACF /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1011,12 +1059,14 @@
 				51CB83751B4CBC2C00962A6F /* GTMBase64.m in Sources */,
 				51E665491B54FB1800453ACF /* SDWebImageDownloader.m in Sources */,
 				51CB832E1B4CBA6B00962A6F /* UIAlertView+AFNetworking.m in Sources */,
+				51CF36C01B69C1E4009C788B /* ReweetView.m in Sources */,
 				51CB83951B4CF4F800962A6F /* MessageVC.m in Sources */,
 				51CB83381B4CBA6B00962A6F /* FMResultSet.m in Sources */,
 				51CB83291B4CBA6B00962A6F /* AFURLRequestSerialization.m in Sources */,
 				51CB83A11B4D078000962A6F /* WeiboMannager.m in Sources */,
 				51CB83AF1B4D28A800962A6F /* WeiboEntity.m in Sources */,
 				51CB832C1B4CBA6B00962A6F /* AFNetworkActivityIndicatorManager.m in Sources */,
+				51CF36C51B69C207009C788B /* WeiboDetailCell.m in Sources */,
 				51CB83421B4CBA6B00962A6F /* MJRefreshLegendFooter.m in Sources */,
 				51CB832B1B4CBA6B00962A6F /* AFURLSessionManager.m in Sources */,
 				51CB838C1B4CD45500962A6F /* MainViewController.m in Sources */,

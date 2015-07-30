@@ -60,22 +60,21 @@
 
          NSString *jsonStr = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
 
-//         if([NSJSONSerialization isValidJSONObject:responseData])
-//         {
+         if(responseData)
+         {
              jsonDic = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:&error];
          
              DLog(@"responseData = %@",jsonStr);
              success(operation, jsonDic);
-//         }
-//         else
-//         {
-//             [self showPrompt:kDataError];
-//         }
+         }
+         else
+         {
+             success(operation, nil);
+         }
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         DLog(@"请求头-------+++++++++++++%@",manager.requestSerializer.HTTPRequestHeaders);
+         DLog(@"请求头: %@",manager.requestSerializer.HTTPRequestHeaders);
          DLog(@"Error: %@", error.userInfo);
-         //            DLog(@"请求服务器头：%@",operation.requestString);
          DLog(@"error: 服务器返回头：%@",operation.responseSerializer.acceptableContentTypes);
          DLog(@"error: 服务器返内容：%@",operation.responseString);
          DLog(@"code= %ld",(long)operation.error.code);

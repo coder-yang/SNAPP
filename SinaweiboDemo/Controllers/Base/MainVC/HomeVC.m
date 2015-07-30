@@ -151,7 +151,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WeiboDetailVC *detailVC = [[WeiboDetailVC alloc]init];
+    WeiboDetailVC *detailVC = [[WeiboDetailVC alloc]initWithEntity:m_dataArr[indexPath.row]];
     detailVC.backText = self.tabBarItem.title;
     [self.navigationController pushViewController:detailVC animated:YES];
     

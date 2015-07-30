@@ -107,7 +107,7 @@
                             entity.retweeted_status.thumbnail_pic_h = [SystemSetting getNewHeightFromSize:size newWidth:entity.retweeted_status.thumbnail_pic_w];
                         }
                         else
-                        {
+                        {//长图高度大于140，设置高度为140
                             entity.retweeted_status.thumbnail_pic_w = [SystemSetting getNewWidthFromSize:size newHeight:140];
                             entity.retweeted_status.thumbnail_pic_h = 140;
                         }
