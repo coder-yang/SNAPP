@@ -7,7 +7,6 @@
 //
 
 #import "SystemSetting.h"
-#import "JSONKit.h"
 #import "NSString+Expand.h"
 
 @implementation SystemSetting

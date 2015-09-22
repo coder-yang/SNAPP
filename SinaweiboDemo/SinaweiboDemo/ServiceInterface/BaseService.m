@@ -10,7 +10,6 @@
 #import "URRequest.h"
 #import "NSDictionary+Extend.h"
 #import "AppDelegate.h"
-#import "JSONKit.h"
 #import "LoginViewController.h"
 
 @implementation BaseService
