@@ -101,6 +101,7 @@
                 {
                     [UIImageView requestSizeFor:[NSURL URLWithString:[entity.retweeted_status.pic_urls[0] objectForKey:@"thumbnail_pic"]]  completion:^(NSURL *imgURL, CGSize size) {
                         
+                        
                         if(size.height <= 140)
                         {
                             entity.retweeted_status.thumbnail_pic_w = (size.width > kScreenWith/2)?kScreenWith/2:size.width;
