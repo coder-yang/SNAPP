@@ -15,6 +15,7 @@
 #import "CommentCell.h"
 #import "MJRefresh.h"
 #import "URRequest.h"
+#import "UIViewController+Expand.h"
 
 @interface WeiboDetailVC ()
 {
