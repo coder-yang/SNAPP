@@ -18,9 +18,9 @@
 		112C59AE18ED0DFD00AD2C8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 112C599618ED0DFC00AD2C8A /* UIKit.framework */; };
 		112C59B618ED0DFD00AD2C8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 112C59B418ED0DFD00AD2C8A /* InfoPlist.strings */; };
 		112C59B818ED0DFD00AD2C8A /* SinaweiboDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 112C59B718ED0DFD00AD2C8A /* SinaweiboDemoTests.m */; };
-		36C2D87E1C8C1D610012C8F4 /* DATManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C2D87D1C8C1D610012C8F4 /* DATManager.m */; };
 		36C2D8811C8C1D9D0012C8F4 /* BaseDAT.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C2D8801C8C1D9D0012C8F4 /* BaseDAT.m */; };
 		36C2D8841C8C1E8F0012C8F4 /* BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C2D8831C8C1E8F0012C8F4 /* BaseEntity.m */; };
+		5160CABC1C0D413B009CBFA1 /* UIViewController+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160CABB1C0D413B009CBFA1 /* UIViewController+Expand.m */; };
 		51CB83771B4CBCDD00962A6F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 51CB83761B4CBCDD00962A6F /* libsqlite3.dylib */; };
 		51D79BEB1BB1364B005E35B0 /* msgcome.wav in Resources */ = {isa = PBXBuildFile; fileRef = 51D79AFF1BB1364A005E35B0 /* msgcome.wav */; };
 		51D79BEC1BB1364B005E35B0 /* BussinessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D79B021BB1364A005E35B0 /* BussinessManager.m */; };
@@ -155,6 +155,8 @@
 		36C2D8801C8C1D9D0012C8F4 /* BaseDAT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDAT.m; sourceTree = "<group>"; };
 		36C2D8821C8C1E8F0012C8F4 /* BaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEntity.h; sourceTree = "<group>"; };
 		36C2D8831C8C1E8F0012C8F4 /* BaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEntity.m; sourceTree = "<group>"; };
+		5160CABA1C0D413B009CBFA1 /* UIViewController+Expand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Expand.h"; sourceTree = "<group>"; };
+		5160CABB1C0D413B009CBFA1 /* UIViewController+Expand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Expand.m"; sourceTree = "<group>"; };
 		51CB83761B4CBCDD00962A6F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		51D79AFF1BB1364A005E35B0 /* msgcome.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = msgcome.wav; sourceTree = "<group>"; };
 		51D79B011BB1364A005E35B0 /* BussinessManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BussinessManager.h; sourceTree = "<group>"; };
@@ -510,6 +512,8 @@
 				51D79B081BB1364A005E35B0 /* Base */,
 				51D79B1B1BB1364A005E35B0 /* CommonView */,
 				51D79B211BB1364B005E35B0 /* SNNavigationController */,
+				51D79B0D1BB1364A005E35B0 /* LoginVC */,
+				51D79B101BB1364A005E35B0 /* MainVC */,
 				51D79B241BB1364B005E35B0 /* WeiboVC */,
 			);
 			path = Controllers;
@@ -522,8 +526,6 @@
 				51D79B0A1BB1364A005E35B0 /* BaseView.m */,
 				51D79B0B1BB1364A005E35B0 /* BaseViewController.h */,
 				51D79B0C1BB1364A005E35B0 /* BaseViewController.m */,
-				51D79B0D1BB1364A005E35B0 /* LoginVC */,
-				51D79B101BB1364A005E35B0 /* MainVC */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -534,24 +536,26 @@
 				51D79B0E1BB1364A005E35B0 /* LoginViewController.h */,
 				51D79B0F1BB1364A005E35B0 /* LoginViewController.m */,
 			);
-			path = LoginVC;
+			name = LoginVC;
+			path = Base/LoginVC;
 			sourceTree = "<group>";
 		};
 		51D79B101BB1364A005E35B0 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
+				51D79B151BB1364A005E35B0 /* MainViewController.h */,
+				51D79B161BB1364A005E35B0 /* MainViewController.m */,
 				51D79B111BB1364A005E35B0 /* FindVC.h */,
 				51D79B121BB1364A005E35B0 /* FindVC.m */,
 				51D79B131BB1364A005E35B0 /* HomeVC.h */,
 				51D79B141BB1364A005E35B0 /* HomeVC.m */,
-				51D79B151BB1364A005E35B0 /* MainViewController.h */,
-				51D79B161BB1364A005E35B0 /* MainViewController.m */,
 				51D79B171BB1364A005E35B0 /* MessageVC.h */,
 				51D79B181BB1364A005E35B0 /* MessageVC.m */,
 				51D79B191BB1364A005E35B0 /* MineVC.h */,
 				51D79B1A1BB1364A005E35B0 /* MineVC.m */,
 			);
-			path = MainVC;
+			name = MainVC;
+			path = Base/MainVC;
 			sourceTree = "<group>";
 		};
 		51D79B1B1BB1364A005E35B0 /* CommonView */ = {
@@ -608,6 +612,8 @@
 		51D79B381BB1364B005E35B0 /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				5160CABA1C0D413B009CBFA1 /* UIViewController+Expand.h */,
+				5160CABB1C0D413B009CBFA1 /* UIViewController+Expand.m */,
 				51D79B391BB1364B005E35B0 /* NSDictionary+Extend.h */,
 				51D79B3A1BB1364B005E35B0 /* NSDictionary+Extend.m */,
 				51D79B3B1BB1364B005E35B0 /* NSMutableAttributedString+Extend.h */,
@@ -1000,6 +1006,7 @@
 				51D79C021BB1364B005E35B0 /* WeiboDetailVC.m in Sources */,
 				51D79C101BB1364B005E35B0 /* AFHTTPRequestOperation.m in Sources */,
 				51D79C441BB1364B005E35B0 /* SDWebImageDownloaderOperation.m in Sources */,
+				5160CABC1C0D413B009CBFA1 /* UIViewController+Expand.m in Sources */,
 				51D79BF41BB1364B005E35B0 /* MainViewController.m in Sources */,
 				51D79BF11BB1364B005E35B0 /* LoginViewController.m in Sources */,
 				51D79C0B1BB1364B005E35B0 /* User.m in Sources */,

@@ -176,51 +176,6 @@
     [self onBackButtonClick];
 }
 
-#pragma mark hud
-- (void)hudShowTextOnly:(NSString *)text delay:(int)delay view:(UIView *)aView
-{
-    hud = [MBProgressHUD showHUDAddedTo:aView animated:YES];
-    
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText = text;
-    hud.margin = 10.f;
-//    hud.yOffset = 200; //设置距离视图中心的y坐标
-    hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:delay];
-}
-
-- (void)hudShowWithLabelText:(NSString *)text view:(UIView *)aView
-{
-    hud = [[MBProgressHUD alloc]initWithView:aView];
-    [aView addSubview:hud];
-    
-    hud.detailsLabelText = text;
-    hud.margin = 10.f;
-    hud.removeFromSuperViewOnHide = YES;
-    [hud show:YES];
-}
-
-- (void)hideHudDidSuccess:(NSString *)text
-{
-    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-    hud.mode = MBProgressHUDModeCustomView;
-    hud.detailsLabelText = text;
-    [hud hide:YES afterDelay:2];
-}
-
-- (void)hideHudDidFail:(NSString *)text
-{
-    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x_icon_reqeustFail"]];
-    hud.mode = MBProgressHUDModeCustomView;
-    hud.detailsLabelText = text;
-    [hud hide:YES afterDelay:2];
-}
-
-- (void)hideHud
-{
-    [hud hide:YES];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
