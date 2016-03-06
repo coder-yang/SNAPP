@@ -18,6 +18,9 @@
 		112C59AE18ED0DFD00AD2C8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 112C599618ED0DFC00AD2C8A /* UIKit.framework */; };
 		112C59B618ED0DFD00AD2C8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 112C59B418ED0DFD00AD2C8A /* InfoPlist.strings */; };
 		112C59B818ED0DFD00AD2C8A /* SinaweiboDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 112C59B718ED0DFD00AD2C8A /* SinaweiboDemoTests.m */; };
+		36C2D87E1C8C1D610012C8F4 /* DATManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C2D87D1C8C1D610012C8F4 /* DATManager.m */; };
+		36C2D8811C8C1D9D0012C8F4 /* BaseDAT.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C2D8801C8C1D9D0012C8F4 /* BaseDAT.m */; };
+		36C2D8841C8C1E8F0012C8F4 /* BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C2D8831C8C1E8F0012C8F4 /* BaseEntity.m */; };
 		51CB83771B4CBCDD00962A6F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 51CB83761B4CBCDD00962A6F /* libsqlite3.dylib */; };
 		51D79BEB1BB1364B005E35B0 /* msgcome.wav in Resources */ = {isa = PBXBuildFile; fileRef = 51D79AFF1BB1364A005E35B0 /* msgcome.wav */; };
 		51D79BEC1BB1364B005E35B0 /* BussinessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D79B021BB1364A005E35B0 /* BussinessManager.m */; };
@@ -146,6 +149,12 @@
 		112C59B318ED0DFD00AD2C8A /* SinaweiboDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SinaweiboDemoTests-Info.plist"; sourceTree = "<group>"; };
 		112C59B518ED0DFD00AD2C8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		112C59B718ED0DFD00AD2C8A /* SinaweiboDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinaweiboDemoTests.m; sourceTree = "<group>"; };
+		36C2D87C1C8C1D610012C8F4 /* DATManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATManager.h; sourceTree = "<group>"; };
+		36C2D87D1C8C1D610012C8F4 /* DATManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATManager.m; sourceTree = "<group>"; };
+		36C2D87F1C8C1D9D0012C8F4 /* BaseDAT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDAT.h; sourceTree = "<group>"; };
+		36C2D8801C8C1D9D0012C8F4 /* BaseDAT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDAT.m; sourceTree = "<group>"; };
+		36C2D8821C8C1E8F0012C8F4 /* BaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEntity.h; sourceTree = "<group>"; };
+		36C2D8831C8C1E8F0012C8F4 /* BaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEntity.m; sourceTree = "<group>"; };
 		51CB83761B4CBCDD00962A6F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		51D79AFF1BB1364A005E35B0 /* msgcome.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = msgcome.wav; sourceTree = "<group>"; };
 		51D79B011BB1364A005E35B0 /* BussinessManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BussinessManager.h; sourceTree = "<group>"; };
@@ -417,6 +426,7 @@
 			children = (
 				112C59A118ED0DFC00AD2C8A /* AppDelegate.h */,
 				112C59A218ED0DFC00AD2C8A /* AppDelegate.m */,
+				36C2D87B1C8C1D420012C8F4 /* DAT */,
 				51D79BE21BB1364B005E35B0 /* Untils */,
 				51D79B381BB1364B005E35B0 /* Expand */,
 				51D79B471BB1364B005E35B0 /* Models */,
@@ -460,6 +470,17 @@
 				112C59B418ED0DFD00AD2C8A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		36C2D87B1C8C1D420012C8F4 /* DAT */ = {
+			isa = PBXGroup;
+			children = (
+				36C2D87C1C8C1D610012C8F4 /* DATManager.h */,
+				36C2D87D1C8C1D610012C8F4 /* DATManager.m */,
+				36C2D87F1C8C1D9D0012C8F4 /* BaseDAT.h */,
+				36C2D8801C8C1D9D0012C8F4 /* BaseDAT.m */,
+			);
+			path = DAT;
 			sourceTree = "<group>";
 		};
 		51D79AFE1BB1364A005E35B0 /* Audio */ = {
@@ -614,6 +635,8 @@
 				51D79B4B1BB1364B005E35B0 /* User.m */,
 				51D79B4C1BB1364B005E35B0 /* WeiboEntity.h */,
 				51D79B4D1BB1364B005E35B0 /* WeiboEntity.m */,
+				36C2D8821C8C1E8F0012C8F4 /* BaseEntity.h */,
+				36C2D8831C8C1E8F0012C8F4 /* BaseEntity.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1002,6 +1025,7 @@
 				51D79C461BB1364B005E35B0 /* SDWebImagePrefetcher.m in Sources */,
 				51D79BED1BB1364B005E35B0 /* CommentManager.m in Sources */,
 				51D79C2E1BB1364B005E35B0 /* NSObject+MJKeyValue.m in Sources */,
+				36C2D8841C8C1E8F0012C8F4 /* BaseEntity.m in Sources */,
 				51D79C401BB1364B005E35B0 /* SDImageCache.m in Sources */,
 				51D79C3B1BB1364B005E35B0 /* UIScrollView+MJRefresh.m in Sources */,
 				51D79C2A1BB1364B005E35B0 /* MJFoundation.m in Sources */,
@@ -1050,12 +1074,14 @@
 				51D79C4C1BB1364B005E35B0 /* UIImageView+WebCache.m in Sources */,
 				51D79C221BB1364B005E35B0 /* FMDatabaseAdditions.m in Sources */,
 				51D79C0F1BB1364B005E35B0 /* URRequest.m in Sources */,
+				36C2D8811C8C1D9D0012C8F4 /* BaseDAT.m in Sources */,
 				51D79C481BB1364B005E35B0 /* UIImage+GIF.m in Sources */,
 				51D79C2D1BB1364B005E35B0 /* NSObject+MJCoding.m in Sources */,
 				51D79C281BB1364B005E35B0 /* MBProgressHUD.m in Sources */,
 				51D79C071BB1364B005E35B0 /* UIColor+Expand.m in Sources */,
 				51D79C031BB1364B005E35B0 /* NSDictionary+Extend.m in Sources */,
 				51D79C391BB1364B005E35B0 /* MJRefreshLegendHeader.m in Sources */,
+				36C2D87E1C8C1D610012C8F4 /* DATManager.m in Sources */,
 				51D79BFA1BB1364B005E35B0 /* CommentCell.m in Sources */,
 				51D79C2F1BB1364B005E35B0 /* NSObject+MJProperty.m in Sources */,
 				51D79C431BB1364B005E35B0 /* SDWebImageDownloader.m in Sources */,

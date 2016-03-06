@@ -9,5 +9,6 @@
 #ifndef SinaweiboDemo_DBConfig_h
 #define SinaweiboDemo_DBConfig_h
 
+#define DBNAME @"Sina.db"
 
 #endif
