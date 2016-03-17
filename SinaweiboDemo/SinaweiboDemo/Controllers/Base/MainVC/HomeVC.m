@@ -66,7 +66,6 @@
     __weak HomeVC *weakSelf = self;
 
     [m_tableView addLegendFooterWithRefreshingBlock:^{
-        page += 1;
         isLoadMore = YES;
         [weakSelf requestFriendTimeLine];
     }];
@@ -175,7 +174,7 @@
         
         if(isLoadMore)
         {//加载更多
-            if(page < totalPage)
+            if(page <= totalPage)
             {
                 [m_dataArr addObjectsFromArray:resultArr];
             }
@@ -204,13 +203,14 @@
             [m_tableView.header endRefreshing];
         }
         
+        page++;
+        
         [m_tableView reloadData];
         
     } fail:^(NSString *errorStr) {
         
         if(isLoadMore)
         {
-            page--; //网络请求失败，执行减操作，上拉的时候加了1，需要减1，保持当前失败的页码
             [m_tableView.footer setTitle:@"加载失败，点击重试" forState:MJRefreshFooterStateIdle];
         }
         else
